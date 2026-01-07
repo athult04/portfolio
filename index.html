@@ -138,6 +138,22 @@
             width: 100%;
         }
 
+        /* Mobile Menu Base */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
         /* --- Hero Section --- */
         .hero {
             min-height: 100vh;
@@ -547,6 +563,32 @@
                 width: 300px;
                 right: -10px;
             }
+
+            /* Mobile Nav */
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(5, 5, 8, 0.95);
+                backdrop-filter: blur(20px);
+                align-items: center;
+                gap: 2rem;
+                padding: 2rem 0;
+                border-bottom: 1px solid var(--glass-border);
+                transform: translateY(-150%);
+                transition: transform 0.4s ease;
+                z-index: -1;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -558,11 +600,16 @@
         <div class="container">
             <nav>
                 <div class="logo">ATHUL</div>
-                <div class="nav-links">
-                    <a href="#home">HOME</a>
-                    <a href="#about">ABOUT</a>
-                    <a href="#projects">PROJECTS</a>
-                    <a href="#contact">CONTACT</a>
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" onclick="toggleMenu()">HOME</a>
+                    <a href="#about" onclick="toggleMenu()">ABOUT</a>
+                    <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
+                    <a href="#contact" onclick="toggleMenu()">CONTACT</a>
                 </div>
             </nav>
         </div>
