@@ -11,7 +11,7 @@ Write-Host "Adding files..."
 & $git add .
 
 Write-Host "Committing changes..."
-& $git commit -m "Fix missing styles - reupload all"
+& $git commit -m "Consolidate to single index.html file"
 
 Write-Host "Setting branch to main..."
 & $git branch -M main
