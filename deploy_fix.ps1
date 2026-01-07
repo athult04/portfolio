@@ -7,13 +7,14 @@ Write-Host "Configuring generic git user..."
 & $git config user.email "portfolio@example.com"
 & $git config user.name "Portfolio Builder"
 
-Write-Host "Adding files..."
+Write-Host "Adding changes..."
 & $git add .
+& $git add -u
 
-Write-Host "Committing changes..."
-& $git commit -m "Consolidate to single index.html file"
+Write-Host "Committing cleanup..."
+& $git commit -m "Clean up unused files"
 
-Write-Host "Setting branch to main..."
+Write-Host "Pushing..."
 & $git branch -M main
 
 Write-Host "Adding remote..."
