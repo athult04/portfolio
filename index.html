@@ -874,6 +874,12 @@
             w.style.display = w.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        // --- Mobile Menu ---
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
         function askAI(type) {
             const msgs = document.getElementById('chatMessages');
             let userT = "", botT = "";
