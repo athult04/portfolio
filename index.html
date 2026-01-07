@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athul Thomas P | AI-Powered Portfolio</title>
+    <title>Athul Thomas P | Creative Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,17 +14,20 @@
     <style>
         /* --- Variables & Reset --- */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #222222;
-            --accent-color: #ff2a2a;
-            /* Tech Red */
-            --accent-secondary: #cc0000;
-            /* Darker Red */
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(0, 0, 0, 0.05);
+            --bg-dark: #050508;
+            --bg-light: #10101a;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+
+            --accent-gradient: linear-gradient(135deg, #00f2ff 0%, #bd00ff 100%);
+            --accent-glow: rgba(0, 242, 255, 0.5);
+
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-highlight: rgba(255, 255, 255, 0.1);
+
             --font-main: 'Outfit', sans-serif;
             --font-code: 'JetBrains Mono', monospace;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -35,22 +38,21 @@
 
         body {
             font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Background Canvas */
-        #particles {
+        /* Background */
+        #bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at center, #ffffff 0%, #fff5f5 100%);
-            /* Slight red tint at edges */
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
         }
 
         /* --- Typography --- */
@@ -58,7 +60,7 @@
         h2,
         h3 {
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.02em;
         }
 
         /* --- Layout --- */
@@ -70,7 +72,6 @@
 
         section {
             padding: 8rem 0;
-            scroll-margin-top: 80px;
             position: relative;
             z-index: 1;
         }
@@ -80,12 +81,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(5, 5, 8, 0.8);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -97,12 +97,11 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #000;
             font-family: var(--font-code);
-        }
-
-        .logo span {
-            color: var(--accent-color);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
         }
 
         .nav-links {
@@ -111,18 +110,32 @@
         }
 
         .nav-links a {
-            font-size: 0.95rem;
-            color: #555;
+            font-size: 0.9rem;
+            color: var(--text-muted);
             text-decoration: none;
             transition: 0.3s;
-            font-weight: 600;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: #000;
-            text-decoration: underline;
-            text-decoration-color: var(--accent-color);
-            text-underline-offset: 4px;
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-gradient);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* --- Hero Section --- */
@@ -133,7 +146,22 @@
             justify-content: center;
             text-align: center;
             padding-top: 80px;
-            /* Offset for fixed header */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glow behind avatar */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, rgba(189, 0, 255, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -145,8 +173,8 @@
         }
 
         .hero-image {
-            width: 280px;
-            height: 280px;
+            width: 320px;
+            height: 320px;
             margin-bottom: 2rem;
             position: relative;
             animation: float 6s ease-in-out infinite;
@@ -157,48 +185,50 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.2));
+            /* Enhanced glow */
         }
 
         @keyframes float {
-            0% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
 
             50% {
                 transform: translateY(-20px);
             }
-
-            100% {
-                transform: translateY(0px);
-            }
         }
 
         .hero-content h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: #000;
+            background: linear-gradient(to bottom, #fff 0%, #a0a0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Typing Effect */
+        /* Typing Effect with Gradient Cursor */
         .typing-container {
             font-family: var(--font-code);
-            color: #cc0000;
-            background: rgba(255, 50, 50, 0.1);
-            padding: 0.2rem 1rem;
-            border-radius: 4px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             display: inline-block;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
-            min-height: 1.6em;
-            font-weight: 700;
+            color: #fff;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
-        .btn {
+        .gradient-btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--accent-color);
+            padding: 1rem 3rem;
+            background: var(--accent-gradient);
             border: none;
             color: #fff;
             border-radius: 50px;
@@ -208,46 +238,108 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 5px 15px rgba(255, 42, 42, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 42, 42, 0.6);
+        .gradient-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(189, 0, 255, 0.4);
         }
 
-        /* --- Glassmorphism Cards --- */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
+        /* --- 3D Tilt Cards --- */
+        .tilt-card {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
             border-radius: 20px;
-            padding: 2rem;
-            transition: 0.4s;
-            height: 100%;
-            box-shadow: var(--card-shadow);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.1s;
+            /* Fast transition for tilt */
+            transform-style: preserve-3d;
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-color);
-            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+        /* Card highlight effect */
+        .tilt-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
         }
 
-        /* Projects Grid */
+        .tilt-card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tilt-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Grid Layouts */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+        }
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
+        /* Skills Grid */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .skill-item:hover .skill-icon {
+            background: var(--accent-gradient);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        /* Project Images */
         .project-image {
+            height: 220px;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 1.5rem;
-            height: 200px;
-            border: 1px solid #eee;
+            position: relative;
         }
 
         .project-image img {
@@ -255,67 +347,29 @@
             height: 100%;
             object-fit: cover;
             transition: 0.5s;
+            opacity: 0.8;
         }
 
-        .glass-card:hover .project-image img {
+        .tilt-card:hover .project-image img {
             transform: scale(1.1);
+            opacity: 1;
         }
 
-        /* --- Skill Icons Grid --- */
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
+        .project-link {
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            text-align: center;
-        }
-
-        .skill-icon {
-            width: 50px;
-            height: 50px;
-            background: #fff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #444;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+            color: #00f2ff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
             transition: 0.3s;
-            border: 1px solid #eee;
         }
 
-        .skill-item:hover .skill-icon {
-            background: var(--accent-color);
-            color: #fff;
-            transform: rotateY(180deg);
-        }
-
-        .skill-name {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #555;
-        }
-
-        .tags span {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: #fff;
-            border: 1px solid #eee;
-            color: #444;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-family: var(--font-code);
-            font-weight: 600;
+        .project-link:hover {
+            padding-left: 5px;
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* --- Chat Bot --- */
@@ -327,122 +381,135 @@
         }
 
         .chat-toggle {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-color);
+            width: 65px;
+            height: 65px;
+            background: var(--accent-gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
             transition: 0.3s;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px var(--accent-glow);
         }
 
         .chat-window {
             position: absolute;
             bottom: 80px;
             right: 0;
-            width: 350px;
-            background: #fff;
-            border: 1px solid #eee;
+            width: 360px;
+            background: #0f0f15;
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
             display: none;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
             flex-direction: column;
         }
 
         .chat-header {
-            padding: 1rem;
-            background: var(--accent-color);
-            color: #fff;
-            font-weight: 600;
+            padding: 1.2rem;
+            background: linear-gradient(90deg, #0d0d15, #151525);
+            border-bottom: 1px solid var(--glass-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .chat-header span i {
+            color: #00f2ff;
+            margin-right: 8px;
+        }
+
         .chat-messages {
-            height: 300px;
+            height: 350px;
             overflow-y: auto;
-            padding: 1rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            background: #f9f9f9;
+            background: radial-gradient(circle at center, #13131f 0%, #0a0a10 100%);
         }
 
         .msg {
-            padding: 0.8rem 1rem;
-            border-radius: 12px;
-            max-width: 80%;
-            font-size: 0.9rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 15px;
+            max-width: 85%;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .msg.bot {
-            background: #fff;
-            border: 1px solid #eee;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
             align-self: flex-start;
             border-bottom-left-radius: 2px;
-            color: #333;
+            color: #d0d0e0;
         }
 
         .msg.user {
-            background: var(--accent-color);
+            background: var(--accent-gradient);
             align-self: flex-end;
             border-bottom-right-radius: 2px;
             color: #fff;
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .chat-options {
             padding: 1rem;
-            border-top: 1px solid #eee;
-            background: #fff;
+            border-top: 1px solid var(--glass-border);
+            background: #0f0f15;
         }
 
         .chat-btn {
-            display: block;
             width: 100%;
             padding: 0.8rem;
-            background: #f5f5f5;
-            border: none;
-            color: #333;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            color: #fff;
             text-align: left;
             margin-bottom: 0.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             transition: 0.2s;
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .chat-btn:hover {
-            background: var(--accent-color);
-            color: #fff;
+            background: rgba(0, 242, 255, 0.1);
+            border-color: #00f2ff;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
-            .chat-window {
-                width: 300px;
-                right: -20px;
+            .hero-content h1 {
+                font-size: 3rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
             .skill-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            .chat-window {
+                width: 300px;
+                right: -10px;
             }
         }
     </style>
 </head>
 
 <body>
-    <canvas id="particles"></canvas>
+    <canvas id="bg-canvas"></canvas>
 
     <header>
         <div class="container">
@@ -465,84 +532,90 @@
                 <div class="hero-image">
                     <img src="assets/images/avatar.png" alt="Athul 3D Avatar">
                 </div>
-                <div class="typing-container"><span id="typewriter"></span><span style="opacity:0.7">|</span></div>
-                <h1>WordPress & Elementor<br>Developer</h1>
-                <p style="margin-bottom: 2rem; color: #666;">Designing intelligent, responsive, and high-performance
-                    digital experiences.</p>
-                <a href="#projects" class="btn">VIEW WORK</a>
+                <!-- Typing Effect -->
+                <div class="typing-container">
+                    <i class="fas fa-terminal" style="margin-right:8px; color:#00f2ff; font-size:0.8em;"></i>
+                    <span id="typewriter"></span><span style="animation: blink 1s infinite">|</span>
+                </div>
+
+                <h1>Simulating<br>Digital Reality.</h1>
+                <p
+                    style="margin-bottom: 2.5rem; margin-top: 1rem; color: var(--text-muted); font-size: 1.1rem; max-width: 600px;">
+                    WordPress Specialist & Creative Developer crafting high-fidelity web experiences with code and AI.
+                </p>
+                <a href="#projects" class="gradient-btn">EXPLORE SYSTEMS</a>
             </div>
         </section>
 
         <!-- About -->
         <section id="about">
             <div class="container">
-                <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">01. System Stats <span
-                        style="font-size:1rem; color:#aaa; font-family:var(--font-code)">// ABOUT ME</span></h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
-                    <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem; color: #000;">Profile Loaded</h3>
-                        <p style="margin-bottom: 1rem; color:#555;">I’m Athul Thomas, a WordPress Developer and
-                            Digital Marketer with a strong focus on creating clean, responsive, and SEO-optimized
-                            websites. I have hands-on experience building business and personal websites using
-                            WordPress, Elementor, and custom CSS, ensuring both visual appeal and performance.</p>
-                        <p style="margin-bottom: 1.5rem; color:#555;">I enjoy transforming ideas into functional
-                            digital solutions, optimizing websites for speed and search visibility, and continuously
-                            improving my skills to stay updated with modern web standards. My goal is to deliver
-                            user-friendly websites that help brands grow online.</p>
+                <h2
+                    style="margin-bottom: 3rem; font-size: 2.5rem; background: var(--text-main); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 30px rgba(255,255,255,0.1);">
+                    01. Initialization <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
+                        ABOUT</span>
+                </h2>
+                <div class="about-grid">
+                    <div class="tilt-card" data-tilt>
+                        <h3>Profile Status: Online</h3>
+                        <p style="margin-bottom: 1rem;">I’m Athul Thomas, a WordPress Developer and Digital Marketer
+                            blending technical precision with creative flair. I build SEO-optimized, high-performance
+                            websites that don't just function—they captivate.</p>
+                        <p>Specializing in Elementor and custom integrations, I turn static ideas into fluid, responsive
+                            digital ecosystems.</p>
 
-                        <h4 style="margin-bottom: 1rem; color:#000;">Core Modules:</h4>
-
-                        <!-- Skill Icons Grid -->
+                        <h4 style="margin-top: 2rem; margin-bottom: 1.5rem; color: #fff;">Tech Stack</h4>
                         <div class="skill-grid">
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div>
-                                <span class="skill-name">WordPress</span>
+                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div><span>WP</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-elementor"></i></div>
-                                <span class="skill-name">Elementor</span>
+                                <div class="skill-icon"><i class="fab fa-elementor"></i></div><span>Elementor</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                                <span class="skill-name">HTML5</span>
+                                <div class="skill-icon"><i class="fab fa-html5"></i></div><span>HTML5</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                                <span class="skill-name">CSS3</span>
+                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div><span>CSS3</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-search"></i></div>
-                                <span class="skill-name">SEO</span>
+                                <div class="skill-icon"><i class="fas fa-bolt"></i></div><span>Speed</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                                <span class="skill-name">Speed</span>
+                                <div class="skill-icon"><i class="fas fa-search"></i></div><span>SEO</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
-                                <span class="skill-name">Design</span>
+                                <div class="skill-icon"><i class="fas fa-palette"></i></div><span>Design</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
-                                <span class="skill-name">Marketing</span>
+                                <div class="skill-icon"><i class="fas fa-bullhorn"></i></div><span>Ads</span>
                             </div>
                         </div>
-
                     </div>
-                    <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem; color: #000;">Education Log</h3>
-                        <ul style="list-style: none; color: #555;">
-                            <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
-                                <i class="fas fa-graduation-cap"
-                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                <strong>BA Mass Communication</strong><br>Journalism
-                            </li>
-                            <li style="padding-left: 1.5rem; position: relative;">
-                                <i class="fas fa-certificate"
-                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
-                                <strong>Diploma in Digital Marketing</strong><br>NACTET Certified
-                            </li>
-                        </ul>
+
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="tilt-card" data-tilt>
+                            <h3>Education Log</h3>
+                            <ul style="list-style: none; color: var(--text-muted);">
+                                <li style="margin-bottom: 1.5rem; position: relative; padding-left: 20px;">
+                                    <i class="fas fa-graduation-cap"
+                                        style="position: absolute; left: 0; top: 5px; color: #00f2ff;"></i>
+                                    <strong style="color: #fff;">BA Mass Communication</strong><br>Journalism & Media
+                                </li>
+                                <li style="position: relative; padding-left: 20px;">
+                                    <i class="fas fa-certificate"
+                                        style="position: absolute; left: 0; top: 5px; color: #bd00ff;"></i>
+                                    <strong style="color: #fff;">Digital Marketing Diploma</strong><br>NACTET Certified
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tilt-card" data-tilt
+                            style="flex-grow: 1; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05)); border-color: rgba(255,255,255,0.1);">
+                            <h3>Experience</h3>
+                            <p><strong>1+ Year</strong><br>D Soft Solutions</p>
+                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Corporate Web Solutions & UI Optimization.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -551,82 +624,68 @@
         <!-- Projects -->
         <section id="projects">
             <div class="container">
-                <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">02. Deployed Units <span
-                        style="font-size:1rem; color:#aaa; font-family:var(--font-code)">// PROJECTS</span></h2>
+                <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">
+                    02. Deployed Units <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">//
+                        WORK</span>
+                </h2>
 
                 <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="glass-card">
+                    <!-- Cards with Tilt -->
+                    <div class="tilt-card" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
                                 alt="D Soft"></div>
-                        <div class="tags"><span>Corporate</span><span>WP</span></div>
-                        <h3>D Soft Technologies</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Corporate technology
-                            infrastructure solution.</p>
-                        <a href="https://d-softtechnologies.com/" target="_blank"
-                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
-                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
+                        <h3>D Soft Tech</h3>
+                        <p>Corporate infrastructure solution handling high-traffic data.</p>
+                        <a href="https://d-softtechnologies.com/" target="_blank" class="project-link">ACCESS TERMINAL
+                            <i class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <!-- Project 2 -->
-                    <div class="glass-card">
+                    <div class="tilt-card" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
                                 alt="Travel"></div>
-                        <div class="tags"><span>Travel</span><span>SEO</span></div>
                         <h3>Travel Hope</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Optimized booking engine and
-                            destination showcase.</p>
-                        <a href="https://travelhope.in/" target="_blank"
-                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
-                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
+                        <p>Booking engine with SEO-optimized destination rendering.</p>
+                        <a href="https://travelhope.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
+                                class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="glass-card">
+                    <div class="tilt-card" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
                                 alt="Construction"></div>
-                        <div class="tags"><span>Real Estate</span><span>Design</span></div>
-                        <h3>Copperstone Builders</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Construction portfolio with
-                            gallery modules.</p>
-                        <a href="https://copperstone.in/" target="_blank"
-                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
-                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
+                        <h3>Copperstone</h3>
+                        <p>Visual-heavy portfolio for construction architecture.</p>
+                        <a href="https://copperstone.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
+                                class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <!-- Project 4 -->
-                    <div class="glass-card">
+                    <div class="tilt-card" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=800"
                                 alt="Business"></div>
-                        <div class="tags"><span>Global</span><span>Biz</span></div>
-                        <h3>Hairocraft Global</h3>
-                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">International business
-                            presentation layer.</p>
-                        <a href="https://www.hairocraftglobal.com/" target="_blank"
-                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
-                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
+                        <h3>Hairocraft</h3>
+                        <p>Global business presentation layer with multi-region support.</p>
+                        <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">ACCESS TERMINAL
+                            <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
-        <section id="contact" style="text-align: center;">
+        <section id="contact" style="text-align: center; padding-bottom: 12rem;">
             <div class="container">
-                <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #000;">Ready to Collaborate?</h2>
-                <div class="glass-card"
-                    style="max-width: 600px; margin: 0 auto; display: inline-block; text-align: left;">
-                    <p style="text-align: center; margin-bottom: 2rem; color: #555;">Initiate communication protocol
-                        using the channels below.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="mailto:athulthomas0146@gmail.com" class="btn"
-                            style="background: #222; color: #fff;">EMAIL ME</a>
+                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Ready to Interface?</h2>
+                <div class="tilt-card" style="display: inline-block; max-width: 600px;">
+                    <p style="text-align: center; margin-bottom: 2rem;">Initiate communication protocol. Systems
+                        standing by.</p>
+                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="mailto:athulthomas0146@gmail.com" class="gradient-btn"
+                            style="background:#fff; color:#000;">SEND EMAIL</a>
                         <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
-                            class="btn">LINKEDIN</a>
+                            class="gradient-btn">LINKEDIN</a>
                     </div>
                 </div>
             </div>
@@ -637,34 +696,32 @@
     <div id="chatbot">
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <span><i class="fas fa-robot"></i> AI Assistant</span>
-                <span style="cursor: pointer;" onclick="toggleChat()"><i class="fas fa-times"></i></span>
+                <div><i class="fas fa-robot"></i> <span>ATHUL.BOT</span></div>
+                <span style="cursor: pointer; opacity: 0.7;" onclick="toggleChat()"><i class="fas fa-times"></i></span>
             </div>
             <div class="chat-messages" id="chatMessages">
-                <div class="msg bot">Hello! I am Athul's AI Assistant. How can I help you today?</div>
+                <div class="msg bot">System Online. Hello! I'm the AI assistant. Ask me anything about Athul's work.
+                </div>
             </div>
             <div class="chat-options">
-                <button class="chat-btn" onclick="askAI('skills')">What are your skills?</button>
-                <button class="chat-btn" onclick="askAI('experience')">Tell me about experience</button>
-                <button class="chat-btn" onclick="askAI('contact')">How can I contact him?</button>
+                <button class="chat-btn" onclick="askAI('skills')">Assess Capabilities</button>
+                <button class="chat-btn" onclick="askAI('experience')">Query Experience Log</button>
+                <button class="chat-btn" onclick="askAI('contact')">Establish Contact</button>
             </div>
         </div>
         <div class="chat-toggle" onclick="toggleChat()">
-            <i class="fas fa-comment-dots" style="color:white"></i>
+            <i class="fas fa-comment-dots" style="color:#fff; font-size: 1.5rem;"></i>
         </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        // --- Particle Background ---
-        const canvas = document.getElementById('particles');
+        // --- 3D Particle Space ---
+        const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
 
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
         window.addEventListener('resize', resize);
         resize();
 
@@ -672,65 +729,72 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
                 this.size = Math.random() * 2;
+                this.speedX = (Math.random() - 0.5) * 0.2;
+                this.speedY = (Math.random() - 0.5) * 0.2;
+                this.opacity = Math.random() * 0.5 + 0.1;
             }
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                this.x += this.speedX; this.y += this.speedY;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
             }
             draw() {
-                ctx.fillStyle = 'rgba(255, 42, 42, 0.08)'; // Tech Red Particles
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        for (let i = 0; i < 60; i++) particles.push(new Particle());
+        // Create Starfield
+        for (let i = 0; i < 150; i++) particles.push(new Particle());
 
-        function animate() {
+        function animateCanvas() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((p, index) => {
-                p.update();
-                p.draw();
-                // Connections
-                for (let j = index; j < particles.length; j++) {
-                    const dx = p.x - particles[j].x;
-                    const dy = p.y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        ctx.strokeStyle = `rgba(255, 42, 42, ${0.1 - dist / 1500})`; // Red lines
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(animate);
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateCanvas);
         }
-        animate();
+        animateCanvas();
 
         // --- Typing Effect ---
-        const text = "Initializing Portfolio... >> Athul Thomas P";
-        const typewriter = document.getElementById('typewriter');
-        let i = 0;
+        const textToType = "Executing Portfolio Sequence...";
+        const typeDest = document.getElementById('typewriter');
+        let typeIdx = 0;
 
-        function type() {
-            if (i < text.length) {
-                typewriter.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, 100);
+        function typeWriter() {
+            if (typeIdx < textToType.length) {
+                typeDest.innerHTML += textToType.charAt(typeIdx);
+                typeIdx++;
+                setTimeout(typeWriter, 80);
             }
         }
-        setTimeout(type, 1000);
+        setTimeout(typeWriter, 1000);
 
-        // --- Chat Bot Logic ---
+        // --- 3D Tilt Effect Logic ---
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg tilt
+                const rotateY = ((x - centerX) / centerX) * 5;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // --- Chat Bot ---
         function toggleChat() {
             const w = document.getElementById('chatWindow');
             w.style.display = w.style.display === 'flex' ? 'none' : 'flex';
@@ -738,25 +802,16 @@
 
         function askAI(type) {
             const msgs = document.getElementById('chatMessages');
-            let userText = "",
-                botText = "";
+            let userT = "", botT = "";
 
-            if (type === 'skills') {
-                userText = "What are your skills?";
-                botText = "Athul specializes in WordPress, Elementor Pro, CSS3, custom theme design, and SEO optimization.";
-            } else if (type === 'experience') {
-                userText = "Tell me about experience";
-                botText = "He has over 1 year of experience at D Soft Solutions, creating responsive corporate websites.";
-            } else if (type === 'contact') {
-                userText = "How can I contact him?";
-                botText = "You can email athulthomas0146@gmail.com or connect via LinkedIn.";
-            }
+            if (type === 'skills') { userT = "Assess Capabilities"; botT = "Scanning... Identified advanced proficiency in WordPress CMS, Elementor Pro, CSS3 styling architecture, and On-Page SEO algorithms."; }
+            else if (type === 'experience') { userT = "Query Experience Log"; botT = "Log retrieved: 1+ Year tenure at D Soft Solutions. Successfully deployed responsive corporate infrastructures."; }
+            else { userT = "Establish Contact"; botT = "Comms Link Open: Email athulthomas0146@gmail.com. Response expectancy: < 24 hours."; }
 
-            msgs.innerHTML += `<div class="msg user">${userText}</div>`;
+            msgs.innerHTML += `<div class="msg user">${userT}</div>`;
             msgs.scrollTop = msgs.scrollHeight;
-
             setTimeout(() => {
-                msgs.innerHTML += `<div class="msg bot">${botText}</div>`;
+                msgs.innerHTML += `<div class="msg bot">${botT}</div>`;
                 msgs.scrollTop = msgs.scrollHeight;
             }, 600);
         }
