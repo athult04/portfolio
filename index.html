@@ -10,20 +10,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         /* --- Variables & Reset --- */
         :root {
-            --bg-color: #050510;
-            --text-color: #e0e0e0;
-            --accent-color: #00f0ff;
-            /* Cyber blue */
-            --accent-secondary: #7000ff;
-            /* Neon purple */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.05);
+            --bg-color: #ffffff;
+            --text-color: #222222;
+            --accent-color: #ffc800;
+            /* Vibrant Yellow */
+            --accent-secondary: #ffaa00;
+            /* Darker Yellow/Orange */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.05);
             --font-main: 'Outfit', sans-serif;
             --font-code: 'JetBrains Mono', monospace;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -48,7 +49,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at center, #1a1a2e 0%, #050510 100%);
+            background: radial-gradient(circle at center, #ffffff 0%, #f4f4f4 100%);
         }
 
         /* --- Typography --- */
@@ -78,11 +79,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(5, 5, 16, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1.2rem 0;
             border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -94,7 +96,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #fff;
+            color: #000;
             font-family: var(--font-code);
         }
 
@@ -109,15 +111,17 @@
 
         .nav-links a {
             font-size: 0.95rem;
-            color: #a0a0b0;
+            color: #555;
             text-decoration: none;
             transition: 0.3s;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+            color: #000;
+            text-decoration: underline;
+            text-decoration-color: var(--accent-color);
+            text-underline-offset: 4px;
         }
 
         /* --- Hero Section --- */
@@ -133,71 +137,60 @@
             font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #fff, var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #000;
         }
 
         /* Typing Effect */
         .typing-container {
             font-family: var(--font-code);
-            color: var(--accent-color);
-            font-size: 1.5rem;
+            color: #666;
+            background: rgba(255, 200, 0, 0.15);
+            padding: 0.2rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             min-height: 1.6em;
+            font-weight: 700;
         }
 
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
+            background: var(--accent-color);
+            border: none;
+            color: #000;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: 0.3s;
             position: relative;
             overflow: hidden;
             z-index: 1;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: var(--accent-color);
-            transition: 0.3s;
-            z-index: -1;
+            box-shadow: 0 5px 15px rgba(255, 200, 0, 0.4);
         }
 
         .btn:hover {
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-        }
-
-        .btn:hover::before {
-            width: 100%;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 200, 0, 0.6);
         }
 
         /* --- Glassmorphism Cards --- */
         .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
             transition: 0.4s;
             height: 100%;
+            box-shadow: var(--card-shadow);
         }
 
         .glass-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-secondary);
-            box-shadow: 0 10px 40px rgba(112, 0, 255, 0.15);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         /* Projects Grid */
@@ -213,6 +206,7 @@
             overflow: hidden;
             margin-bottom: 1.5rem;
             height: 200px;
+            border: 1px solid #eee;
         }
 
         .project-image img {
@@ -226,16 +220,61 @@
             transform: scale(1.1);
         }
 
+        /* --- Skill Icons Grid --- */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #444;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .skill-item:hover .skill-icon {
+            background: var(--accent-color);
+            color: #000;
+            transform: rotateY(180deg);
+        }
+
+        .skill-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #555;
+        }
+
         .tags span {
             display: inline-block;
             padding: 0.3rem 0.8rem;
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--accent-color);
+            background: #fff;
+            border: 1px solid #eee;
+            color: #444;
             border-radius: 20px;
             font-size: 0.8rem;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
             font-family: var(--font-code);
+            font-weight: 600;
         }
 
         /* --- Chat Bot --- */
@@ -249,20 +288,14 @@
         .chat-toggle {
             width: 60px;
             height: 60px;
-            background: var(--accent-secondary);
+            background: var(--text-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(112, 0, 255, 0.4);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             transition: 0.3s;
-            animation: pulse 2s infinite;
-        }
-
-        .chat-toggle i {
-            color: #fff;
-            font-size: 1.5rem;
         }
 
         .chat-window {
@@ -270,18 +303,18 @@
             bottom: 80px;
             right: 0;
             width: 350px;
-            background: #0f0f20;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #fff;
+            border: 1px solid #eee;
             border-radius: 20px;
             overflow: hidden;
             display: none;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             flex-direction: column;
         }
 
         .chat-header {
             padding: 1rem;
-            background: var(--accent-secondary);
+            background: var(--text-color);
             color: #fff;
             font-weight: 600;
             display: flex;
@@ -296,6 +329,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            background: #f9f9f9;
         }
 
         .msg {
@@ -306,53 +340,46 @@
         }
 
         .msg.bot {
-            background: rgba(255, 255, 255, 0.05);
+            background: #fff;
+            border: 1px solid #eee;
             align-self: flex-start;
             border-bottom-left-radius: 2px;
+            color: #333;
         }
 
         .msg.user {
-            background: var(--accent-secondary);
+            background: var(--accent-color);
             align-self: flex-end;
             border-bottom-right-radius: 2px;
+            color: #000;
+            font-weight: 500;
         }
 
         .chat-options {
             padding: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid #eee;
+            background: #fff;
         }
 
         .chat-btn {
             display: block;
             width: 100%;
             padding: 0.8rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: #f5f5f5;
             border: none;
-            color: var(--accent-color);
+            color: #333;
             text-align: left;
             margin-bottom: 0.5rem;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.2s;
             font-size: 0.85rem;
+            font-weight: 500;
         }
 
         .chat-btn:hover {
-            background: rgba(0, 240, 255, 0.1);
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(112, 0, 255, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(112, 0, 255, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(112, 0, 255, 0);
-            }
+            background: var(--accent-color);
+            color: #000;
         }
 
         /* Mobile */
@@ -364,6 +391,10 @@
 
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+
+            .skill-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -392,9 +423,9 @@
             <div class="container hero-content">
                 <div class="typing-container"><span id="typewriter"></span><span style="opacity:0.7">|</span></div>
                 <h1>WordPress & Elementor<br>Developer</h1>
-                <p style="margin-bottom: 2rem;">Designing intelligent, responsive, and high-performance digital
-                    experiences.</p>
-                <a href="#projects" class="btn">INITIALIZE PROJECTS</a>
+                <p style="margin-bottom: 2rem; color: #666;">Designing intelligent, responsive, and high-performance
+                    digital experiences.</p>
+                <a href="#projects" class="btn">VIEW WORK</a>
             </div>
         </section>
 
@@ -402,41 +433,69 @@
         <section id="about">
             <div class="container">
                 <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">01. System Stats <span
-                        style="font-size:1rem; color:var(--accent-color); font-family:var(--font-code)">// ABOUT
-                        ME</span></h2>
+                        style="font-size:1rem; color:#aaa; font-family:var(--font-code)">// ABOUT ME</span></h2>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
                     <div class="glass-card">
-                        <h3 style="margin-bottom: 1rem; color: var(--accent-color);">Profile Loaded</h3>
-                        <p style="margin-bottom: 1rem; color:#a0a0b0;">I’m Athul Thomas, a WordPress Developer and
+                        <h3 style="margin-bottom: 1rem; color: #000;">Profile Loaded</h3>
+                        <p style="margin-bottom: 1rem; color:#555;">I’m Athul Thomas, a WordPress Developer and
                             Digital Marketer with a strong focus on creating clean, responsive, and SEO-optimized
                             websites. I have hands-on experience building business and personal websites using
                             WordPress, Elementor, and custom CSS, ensuring both visual appeal and performance.</p>
-                        <p style="margin-bottom: 1.5rem; color:#a0a0b0;">I enjoy transforming ideas into functional
+                        <p style="margin-bottom: 1.5rem; color:#555;">I enjoy transforming ideas into functional
                             digital solutions, optimizing websites for speed and search visibility, and continuously
                             improving my skills to stay updated with modern web standards. My goal is to deliver
                             user-friendly websites that help brands grow online.</p>
 
-                        <h4 style="margin-bottom: 1rem;">Core Modules:</h4>
-                        <div class="tags">
-                            <span>WordPress</span>
-                            <span>Elementor Pro</span>
-                            <span>CSS3</span>
-                            <span>Speed Opt</span>
-                            <span>SEO</span>
-                            <span>HTML5</span>
+                        <h4 style="margin-bottom: 1rem; color:#000;">Core Modules:</h4>
+
+                        <!-- Skill Icons Grid -->
+                        <div class="skill-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div>
+                                <span class="skill-name">WordPress</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-elementor"></i></div>
+                                <span class="skill-name">Elementor</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                                <span class="skill-name">HTML5</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                                <span class="skill-name">CSS3</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-search"></i></div>
+                                <span class="skill-name">SEO</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                                <span class="skill-name">Speed</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                                <span class="skill-name">Design</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
+                                <span class="skill-name">Marketing</span>
+                            </div>
                         </div>
+
                     </div>
-                    <div class="glass-card" style="border-color: var(--accent-secondary);">
-                        <h3 style="margin-bottom: 1rem; color: var(--accent-secondary);">Education Log</h3>
-                        <ul style="list-style: none; color: #a0a0b0;">
+                    <div class="glass-card">
+                        <h3 style="margin-bottom: 1rem; color: #000;">Education Log</h3>
+                        <ul style="list-style: none; color: #555;">
                             <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                                 <i class="fas fa-graduation-cap"
-                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-secondary);"></i>
+                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
                                 <strong>BA Mass Communication</strong><br>Journalism
                             </li>
                             <li style="padding-left: 1.5rem; position: relative;">
                                 <i class="fas fa-certificate"
-                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-secondary);"></i>
+                                    style="position: absolute; left: 0; top: 5px; color: var(--accent-color);"></i>
                                 <strong>Diploma in Digital Marketing</strong><br>NACTET Certified
                             </li>
                         </ul>
@@ -449,8 +508,7 @@
         <section id="projects">
             <div class="container">
                 <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">02. Deployed Units <span
-                        style="font-size:1rem; color:var(--accent-color); font-family:var(--font-code)">//
-                        PROJECTS</span></h2>
+                        style="font-size:1rem; color:#aaa; font-family:var(--font-code)">// PROJECTS</span></h2>
 
                 <div class="projects-grid">
                     <!-- Project 1 -->
@@ -460,11 +518,11 @@
                                 alt="D Soft"></div>
                         <div class="tags"><span>Corporate</span><span>WP</span></div>
                         <h3>D Soft Technologies</h3>
-                        <p style="font-size: 0.9rem; color: #a0a0b0; margin: 1rem 0;">Corporate technology
+                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Corporate technology
                             infrastructure solution.</p>
                         <a href="https://d-softtechnologies.com/" target="_blank"
-                            style="color:var(--accent-color); font-size: 0.9rem; font-weight:600;">ACCESS LINK <i
-                                class="fas fa-arrow-right"></i></a>
+                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
+                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
                     </div>
 
                     <!-- Project 2 -->
@@ -474,11 +532,11 @@
                                 alt="Travel"></div>
                         <div class="tags"><span>Travel</span><span>SEO</span></div>
                         <h3>Travel Hope</h3>
-                        <p style="font-size: 0.9rem; color: #a0a0b0; margin: 1rem 0;">Optimized booking engine and
+                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Optimized booking engine and
                             destination showcase.</p>
                         <a href="https://travelhope.in/" target="_blank"
-                            style="color:var(--accent-color); font-size: 0.9rem; font-weight:600;">ACCESS LINK <i
-                                class="fas fa-arrow-right"></i></a>
+                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
+                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
                     </div>
 
                     <!-- Project 3 -->
@@ -488,11 +546,11 @@
                                 alt="Construction"></div>
                         <div class="tags"><span>Real Estate</span><span>Design</span></div>
                         <h3>Copperstone Builders</h3>
-                        <p style="font-size: 0.9rem; color: #a0a0b0; margin: 1rem 0;">Construction portfolio with
+                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">Construction portfolio with
                             gallery modules.</p>
                         <a href="https://copperstone.in/" target="_blank"
-                            style="color:var(--accent-color); font-size: 0.9rem; font-weight:600;">ACCESS LINK <i
-                                class="fas fa-arrow-right"></i></a>
+                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
+                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
                     </div>
 
                     <!-- Project 4 -->
@@ -502,11 +560,11 @@
                                 alt="Business"></div>
                         <div class="tags"><span>Global</span><span>Biz</span></div>
                         <h3>Hairocraft Global</h3>
-                        <p style="font-size: 0.9rem; color: #a0a0b0; margin: 1rem 0;">International business
+                        <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">International business
                             presentation layer.</p>
                         <a href="https://www.hairocraftglobal.com/" target="_blank"
-                            style="color:var(--accent-color); font-size: 0.9rem; font-weight:600;">ACCESS LINK <i
-                                class="fas fa-arrow-right"></i></a>
+                            style="color:#000; font-size: 0.9rem; font-weight:700;">ACCESS LINK <i
+                                class="fas fa-arrow-right" style="color:var(--accent-color)"></i></a>
                     </div>
                 </div>
             </div>
@@ -515,14 +573,14 @@
         <!-- Contact -->
         <section id="contact" style="text-align: center;">
             <div class="container">
-                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to Collaborate?</h2>
+                <h2 style="font-size: 3rem; margin-bottom: 2rem; color: #000;">Ready to Collaborate?</h2>
                 <div class="glass-card"
                     style="max-width: 600px; margin: 0 auto; display: inline-block; text-align: left;">
-                    <p style="text-align: center; margin-bottom: 2rem; color: #a0a0b0;">Initiate communication protocol
+                    <p style="text-align: center; margin-bottom: 2rem; color: #555;">Initiate communication protocol
                         using the channels below.</p>
                     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                         <a href="mailto:athulthomas0146@gmail.com" class="btn"
-                            style="border-color: #fff; color: #fff;">EMAIL ME</a>
+                            style="background: #222; color: #fff;">EMAIL ME</a>
                         <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
                             class="btn">LINKEDIN</a>
                     </div>
@@ -548,7 +606,7 @@
             </div>
         </div>
         <div class="chat-toggle" onclick="toggleChat()">
-            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-comment-dots" style="color:white"></i>
         </div>
     </div>
 
@@ -559,7 +617,10 @@
         const ctx = canvas.getContext('2d');
         let particles = [];
 
-        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
         window.addEventListener('resize', resize);
         resize();
 
@@ -572,31 +633,33 @@
                 this.size = Math.random() * 2;
             }
             update() {
-                this.x += this.vx; this.y += this.vy;
+                this.x += this.vx;
+                this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
             draw() {
-                ctx.fillStyle = 'rgba(0, 240, 255, 0.5)';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Darker particles
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        for (let i = 0; i < 50; i++) particles.push(new Particle());
+        for (let i = 0; i < 60; i++) particles.push(new Particle());
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach((p, index) => {
-                p.update(); p.draw();
+                p.update();
+                p.draw();
                 // Connections
                 for (let j = index; j < particles.length; j++) {
                     const dx = p.x - particles[j].x;
                     const dy = p.y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < 150) {
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.1 - dist / 1500})`;
+                        ctx.strokeStyle = `rgba(0, 0, 0, ${0.05 - dist / 3000})`; // Subtle dark lines
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
@@ -613,6 +676,7 @@
         const text = "Initializing Portfolio... >> Athul Thomas P";
         const typewriter = document.getElementById('typewriter');
         let i = 0;
+
         function type() {
             if (i < text.length) {
                 typewriter.innerHTML += text.charAt(i);
@@ -630,7 +694,8 @@
 
         function askAI(type) {
             const msgs = document.getElementById('chatMessages');
-            let userText = "", botText = "";
+            let userText = "",
+                botText = "";
 
             if (type === 'skills') {
                 userText = "What are your skills?";
