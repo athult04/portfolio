@@ -268,6 +268,7 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.1s;
+            /* Fast transition for tilt */
             transform-style: preserve-3d;
         }
 
@@ -307,6 +308,7 @@
             gap: 2rem;
         }
 
+        /* Skills Grid */
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -568,22 +570,36 @@
     <main>
         <!-- Hero -->
         <section id="home" class="hero">
+            <div class="hero-bg-wave"></div>
             <div class="container hero-content">
-                <div class="hero-image">
-                    <img src="assets/images/avatar.png" alt="Athul 3D Avatar">
-                </div>
-                <!-- Typing Effect -->
-                <div class="typing-container">
-                    <i class="fas fa-terminal" style="margin-right:8px; color:#00f2ff; font-size:0.8em;"></i>
-                    <span id="typewriter"></span><span style="animation: blink 1s infinite">|</span>
+                <div class="hero-text">
+                    <h1>Athul Thomas P</h1>
+                    <div class="hero-subtitle">WordPress & Elementor Developer</div>
+
+                    <!-- Typing Effect -->
+                    <div class="typing-container"
+                        style="background:transparent; border:none; padding:0; box-shadow:none; margin-bottom: 2rem;">
+                        <i class="fas fa-terminal" style="margin-right:8px; color:#bd00ff; font-size:0.8em;"></i>
+                        <span id="typewriter" style="color: var(--text-muted);"></span><span
+                            style="animation: blink 1s infinite">|</span>
+                    </div>
+
+                    <p style="margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.1rem; max-width: 500px;">
+                        Specializing in creating responsive, high-fidelity digital experiences. Blending technical
+                        precision with modern aesthetics.
+                    </p>
+
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#projects" class="gradient-btn">VIEW WORK</a>
+                        <a href="#contact" class="gradient-btn"
+                            style="background: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">CONTACT
+                            ME</a>
+                    </div>
                 </div>
 
-                <h1>Simulating<br>Digital Reality.</h1>
-                <p
-                    style="margin-bottom: 2.5rem; margin-top: 1rem; color: var(--text-muted); font-size: 1.1rem; max-width: 600px;">
-                    WordPress Specialist & Creative Developer crafting high-fidelity web experiences with code and AI.
-                </p>
-                <a href="#projects" class="gradient-btn">EXPLORE SYSTEMS</a>
+                <div class="hero-image">
+                    <img src="assets/images/avatar_v2.png" alt="Athul 3D Avatar">
+                </div>
             </div>
         </section>
 
