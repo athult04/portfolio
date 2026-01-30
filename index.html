@@ -1041,20 +1041,73 @@
                 <!-- Contact Form -->
                 <div class="tilt-card"
                     style="display: inline-block; max-width: 600px; width: 100%; padding: 3rem; margin-top: 3rem; text-align: left;">
-                    <h3 style="margin-bottom: 1.5rem; text-align: center;">Send a Message</h3>
+                    <h3 style="margin-bottom: 2rem; text-align: center;">Send a Message</h3>
                     <form onsubmit="sendToWhatsApp(event)">
+                        <!-- Full Name -->
                         <div style="margin-bottom: 1.5rem;">
-                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Name</label>
-                            <input type="text" id="contactName" required
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Full
+                                Name</label>
+                            <input type="text" id="contactName" placeholder="Enter your name" required
                                 style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
                         </div>
+
+                        <!-- Email -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Email
+                                Address</label>
+                            <input type="email" id="contactEmail" placeholder="Enter your email" required
+                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                        </div>
+
+                        <!-- Phone -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Phone /
+                                WhatsApp <span style="font-size: 0.8em; opacity: 0.7;">(Optional but
+                                    powerful)</span></label>
+                            <input type="tel" id="contactPhone" placeholder="+91 XXXXXXXXXX"
+                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                        </div>
+
+                        <!-- Project Type -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Type of
+                                Project <span style="font-size: 0.8em; color: #bd00ff;">(IMPORTANT)</span></label>
+                            <select id="projectType" required
+                                style="width: 100%; padding: 1rem; background: rgba(20, 20, 30, 0.95); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Business Website">Business Website</option>
+                                <option value="Portfolio Website">Portfolio Website</option>
+                                <option value="E-commerce Website">E-commerce Website</option>
+                                <option value="Landing Page">Landing Page</option>
+                                <option value="Website Redesign">Website Redesign</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Budget -->
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Budget Range
+                                <span style="font-size: 0.8em; opacity: 0.7;">(Optional but SMART)</span></label>
+                            <select id="budgetRange"
+                                style="width: 100%; padding: 1rem; background: rgba(20, 20, 30, 0.95); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
+                                <option value="" disabled selected>Select a range</option>
+                                <option value="Below ₹15,000">Below ₹15,000</option>
+                                <option value="₹15,000 – ₹25,000">₹15,000 – ₹25,000</option>
+                                <option value="₹25,000 – ₹40,000">₹25,000 – ₹40,000</option>
+                                <option value="₹40,000+">₹40,000+</option>
+                                <option value="Not sure">Not sure</option>
+                            </select>
+                        </div>
+
+                        <!-- Project Details -->
                         <div style="margin-bottom: 2rem;">
-                            <label
-                                style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Message</label>
-                            <textarea id="contactMessage" required rows="4"
-                                placeholder="What does a Kerala honeymoon package from Pune include?"
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Project
+                                Details</label>
+                            <textarea id="projectDetails" rows="5"
+                                placeholder="Briefly describe your requirements, number of pages, reference websites, or deadline."
                                 style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; font-family: var(--font-main);"></textarea>
                         </div>
+
                         <button type="submit" class="gradient-btn" style="width: 100%; cursor: pointer;">
                             <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> SEND VIA WHATSAPP
                         </button>
@@ -1153,13 +1206,26 @@
         });
 
         // --- WhatsApp Form Logic ---
+        // --- WhatsApp Form Logic ---
         function sendToWhatsApp(e) {
             e.preventDefault();
-            const name = document.getElementById('contactName').value;
-            const message = document.getElementById('contactMessage').value;
 
-            const text = `Name: ${name}%0A%0AMessage: ${message}`;
-            const url = `https://wa.me/917012726533?text=${text}`;
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const phone = document.getElementById('contactPhone').value || "Not provided";
+            const projectType = document.getElementById('projectType').value;
+            const budget = document.getElementById('budgetRange').value || "Not specified";
+            const details = document.getElementById('projectDetails').value || "No details provided";
+
+            const message = `*New Project Enquiry* 🚀%0A%0A` +
+                `*Name:* ${name}%0A` +
+                `*Email:* ${email}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Project Type:* ${projectType}%0A` +
+                `*Budget:* ${budget}%0A%0A` +
+                `*Details:*%0A${details}`;
+
+            const url = `https://wa.me/917012726533?text=${message}`;
 
             window.open(url, '_blank');
         }
