@@ -636,6 +636,41 @@
                 transform: translateY(0);
             }
         }
+
+        /* View Switching */
+        .section-view {
+            display: none;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .section-view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nav Active State */
+        .nav-links a.active-link {
+            color: #fff;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a.active-link::after {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -652,10 +687,10 @@
                     <div class="bar"></div>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#home" onclick="toggleMenu()">HOME</a>
-                    <a href="#about" onclick="toggleMenu()">ABOUT</a>
-                    <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
-                    <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+                    <a href="#" onclick="switchView('home'); return false;">HOME</a>
+                    <a href="#" onclick="switchView('about'); return false;">ABOUT</a>
+                    <a href="#" onclick="switchView('projects'); return false;">PROJECTS</a>
+                    <a href="#" onclick="switchView('contact'); return false;">CONTACT</a>
                 </div>
             </nav>
         </div>
@@ -689,8 +724,9 @@
                     </p>
 
                     <div style="display: flex; gap: 1rem;">
-                        <a href="#projects" class="gradient-btn">VIEW MY WORK</a>
-                        <a href="#contact" class="gradient-btn"
+                        <a href="#" onclick="switchView('projects'); return false;" class="gradient-btn">VIEW MY
+                            WORK</a>
+                        <a href="#" onclick="switchView('contact'); return false;" class="gradient-btn"
                             style="background: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">CONTACT
                             ME</a>
                     </div>
@@ -1002,6 +1038,29 @@
                     </div>
                 </div>
 
+                <!-- Contact Form -->
+                <div class="tilt-card"
+                    style="display: inline-block; max-width: 600px; width: 100%; padding: 3rem; margin-top: 3rem; text-align: left;">
+                    <h3 style="margin-bottom: 1.5rem; text-align: center;">Send a Message</h3>
+                    <form onsubmit="sendToWhatsApp(event)">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Name</label>
+                            <input type="text" id="contactName" required
+                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <label
+                                style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Message</label>
+                            <textarea id="contactMessage" required rows="4"
+                                placeholder="What does a Kerala honeymoon package from Pune include?"
+                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; font-family: var(--font-main);"></textarea>
+                        </div>
+                        <button type="submit" class="gradient-btn" style="width: 100%; cursor: pointer;">
+                            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> SEND VIA WHATSAPP
+                        </button>
+                    </form>
+                </div>
+
                 <!-- CTA Section -->
                 <div class="tilt-card"
                     style="display: inline-block; max-width: 600px; padding: 3rem; margin-top: 3rem; background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(189, 0, 255, 0.1)); border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -1041,7 +1100,70 @@
     </div>
 
     <!-- Scripts -->
+    </script>
     <script>
+        // --- View Navigation Logic ---
+        const views = {
+            'home': ['home'],
+            'about': ['about', 'services', 'why-me', 'learning'],
+            'projects': ['projects'],
+            'contact': ['contact']
+        };
+
+        function switchView(viewName) {
+            // Check if mobile menu is open and close it
+            const nav = document.getElementById('navLinks');
+            if (nav.classList.contains('active')) {
+                toggleMenu();
+            }
+
+            // Hide all sections
+            document.querySelectorAll('section').forEach(sec => {
+                sec.style.display = 'none';
+                sec.classList.remove('section-view', 'active');
+            });
+
+            // Show target sections
+            if (views[viewName]) {
+                views[viewName].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.style.display = 'block';
+                        el.classList.add('section-view', 'active');
+                    }
+                });
+            }
+
+            // Update Nav State
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active-link');
+                // Simple check if onclick contains the viewName
+                if (link.getAttribute('onclick').includes(`'${viewName}'`)) {
+                    link.classList.add('active-link');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize Home View
+        document.addEventListener('DOMContentLoaded', () => {
+            switchView('home');
+        });
+
+        // --- WhatsApp Form Logic ---
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const message = document.getElementById('contactMessage').value;
+
+            const text = `Name: ${name}%0A%0AMessage: ${message}`;
+            const url = `https://wa.me/917012726533?text=${text}`;
+
+            window.open(url, '_blank');
+        }
+
         // --- 3D Particle Space ---
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
