@@ -515,6 +515,52 @@
             border-color: #00f2ff;
         }
 
+        /* Thinking Animation */
+        .hero-image.thinking {
+            animation: none;
+            transform: scale(1.05);
+        }
+
+        .thinking-bubble {
+            position: absolute;
+            top: -60px;
+            right: -40px;
+            background: #fff;
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border-bottom-left-radius: 0;
+            font-weight: 800;
+            font-family: var(--font-code);
+            font-size: 1.1rem;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .thinking-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .container {
@@ -622,7 +668,7 @@
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1>Athul Thomas P</h1>
-                    <div class="hero-subtitle">WordPress & Elementor Developer</div>
+                    <div class="hero-subtitle">Frontend Web Developer | WordPress & Elementor Specialist</div>
 
                     <!-- Typing Effect -->
                     <div class="typing-container"
@@ -632,20 +678,25 @@
                             style="animation: blink 1s infinite">|</span>
                     </div>
 
-                    <p style="margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.1rem; max-width: 500px;">
-                        Specializing in creating responsive, high-fidelity digital experiences. Blending technical
-                        precision with modern aesthetics.
+                    <p style="margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.1rem; max-width: 600px;">
+                        I design and develop modern, responsive, and SEO-optimized websites using WordPress, Elementor,
+                        custom HTML, CSS, and animations. I focus on clean UI, smooth user experience, and
+                        performance-driven development.
+                    </p>
+
+                    <p style="margin-bottom: 2rem; color: #00f2ff; font-weight: 600;">
+                        👉 Available for Full-Time | Freelance | Remote Work
                     </p>
 
                     <div style="display: flex; gap: 1rem;">
-                        <a href="#projects" class="gradient-btn">VIEW WORK</a>
+                        <a href="#projects" class="gradient-btn">VIEW MY WORK</a>
                         <a href="#contact" class="gradient-btn"
                             style="background: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">CONTACT
                             ME</a>
                     </div>
                 </div>
 
-                <div class="hero-image">
+                <div class="hero-image" onclick="toggleThinking(this)" style="cursor: pointer;">
                     <img src="assets/images/avatar_v2.png" alt="Athul 3D Avatar">
                 </div>
             </div>
@@ -667,20 +718,26 @@
                             <img src="assets/images/avatar_v2.png" alt="Profile"
                                 style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:2px solid #00f2ff;">
                         </div>
-                        <p style="margin-bottom: 1rem;">I’m Athul Thomas, a WordPress Developer and Digital Marketer
-                            blending technical precision with creative flair. I build SEO-optimized, high-performance
-                            websites that don't just function—they captivate.</p>
-                        <p>Specializing in Elementor and custom integrations, I turn static ideas into fluid, responsive
-                            digital ecosystems.</p>
+                        <p style="margin-bottom: 1rem;">I’m a Frontend Web Developer with 1+ year of professional
+                            experience in building custom WordPress websites from scratch. I specialize in
+                            Elementor-based development, where I don’t rely on pre-made templates — instead, I create
+                            custom layouts using HTML, CSS, and animations.</p>
+                        <p style="margin-bottom: 1rem;">I have hands-on experience working on live client projects
+                            across multiple industries, ensuring websites are:</p>
+                        <ul style="list-style: none; margin-bottom: 1rem; color: var(--text-muted);">
+                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>Fully responsive
+                                on all devices</li>
+                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>SEO-friendly</li>
+                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>Fast-loading and
+                                performance optimized</li>
+                        </ul>
+                        <p>Along with frontend development, I have basic PHP knowledge for WordPress customization and
+                            I’m currently learning Python to expand into backend and full-stack development (Django).
+                        </p>
 
                         <h4 style="margin-top: 2rem; margin-bottom: 1.5rem; color: #fff;">Tech Stack</h4>
                         <div class="skill-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div><span>WP</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-elementor"></i></div><span>Elementor</span>
-                            </div>
+                            <!-- Frontend & UI -->
                             <div class="skill-item">
                                 <div class="skill-icon"><i class="fab fa-html5"></i></div><span>HTML5</span>
                             </div>
@@ -688,16 +745,34 @@
                                 <div class="skill-icon"><i class="fab fa-css3-alt"></i></div><span>CSS3</span>
                             </div>
                             <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-magic"></i></div><span>Animations</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div><span>Responsive</span>
+                            </div>
+                            <!-- WordPress -->
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div><span>WordPress</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fab fa-elementor"></i></div><span>Elementor</span>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon"><i class="fas fa-plug"></i></div><span>Plugins</span>
+                            </div>
+                            <!-- Performance & SEO -->
+                            <div class="skill-item">
                                 <div class="skill-icon"><i class="fas fa-bolt"></i></div><span>Speed</span>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-icon"><i class="fas fa-search"></i></div><span>SEO</span>
                             </div>
+                            <!-- Programming -->
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-palette"></i></div><span>Design</span>
+                                <div class="skill-icon"><i class="fab fa-php"></i></div><span>Basic PHP</span>
                             </div>
                             <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-bullhorn"></i></div><span>Ads</span>
+                                <div class="skill-icon"><i class="fab fa-python"></i></div><span>Python</span>
                             </div>
                         </div>
                     </div>
@@ -728,6 +803,50 @@
             </div>
         </section>
 
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2 style="margin-bottom: 3rem; font-size: 2.5rem; text-align: center;">
+                    Services <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">// WHAT I
+                        DO</span>
+                </h2>
+                <div class="projects-grid">
+                    <!-- Custom WP Dev -->
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
+                        <i class="fab fa-wordpress" style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                        <h3>Custom WordPress Development</h3>
+                        <p>Complete website development using Elementor with custom layouts, clean design, and
+                            responsive structure.</p>
+                    </div>
+                    <!-- Elementor -->
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #bd00ff;">
+                        <i class="fab fa-elementor" style="font-size: 2.5rem; color: #bd00ff; margin-bottom: 1rem;"></i>
+                        <h3>Elementor Customization</h3>
+                        <p>Advanced Elementor layouts with smooth animations and interactive UI elements.</p>
+                    </div>
+                    <!-- Frontend -->
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
+                        <i class="fas fa-code" style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                        <h3>Frontend Development</h3>
+                        <p>HTML & CSS-based custom sections for unique designs beyond templates.</p>
+                    </div>
+                    <!-- SEO -->
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #bd00ff;">
+                        <i class="fas fa-search" style="font-size: 2.5rem; color: #bd00ff; margin-bottom: 1rem;"></i>
+                        <h3>SEO-Ready Setup</h3>
+                        <p>On-page SEO optimization with proper structure, meta tags, and performance focus.</p>
+                    </div>
+                    <!-- Performance -->
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
+                        <i class="fas fa-tachometer-alt"
+                            style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                        <h3>Performance Optimization</h3>
+                        <p>Speed optimization, image compression, and Core Web Vitals improvements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects -->
         <section id="projects">
             <div class="container">
@@ -740,20 +859,11 @@
                     <!-- Cards with Tilt -->
                     <div class="tilt-card" data-tilt>
                         <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800"
-                                alt="Dream Holidays Kerala"></div>
-                        <h3>Dream Holidays Kerala</h3>
-                        <p>Travel and tourism platform showcasing Kerala's destinations.</p>
-                        <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card" data-tilt>
-                        <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
                                 alt="D Soft"></div>
-                        <h3>D Soft Tech</h3>
-                        <p>Corporate infrastructure solution handling high-traffic data.</p>
+                        <h3>D Soft Technologies</h3>
+                        <p>WordPress business website developed using Elementor with responsive layout, clean UI, and
+                            performance optimization.</p>
                         <a href="https://d-softtechnologies.com/" target="_blank" class="project-link">ACCESS TERMINAL
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
@@ -763,7 +873,8 @@
                                 src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
                                 alt="Travel"></div>
                         <h3>Travel Hope</h3>
-                        <p>Booking engine with SEO-optimized destination rendering.</p>
+                        <p>Travel website with custom Elementor layouts, SEO-friendly pages, and mobile-first design.
+                        </p>
                         <a href="https://travelhope.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
                                 class="fas fa-chevron-right"></i></a>
                     </div>
@@ -772,8 +883,8 @@
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
                                 alt="Construction"></div>
-                        <h3>Copperstone</h3>
-                        <p>Visual-heavy portfolio for construction architecture.</p>
+                        <h3>Copperstone Builders</h3>
+                        <p>Real estate website with modern UI, smooth animations, and optimized loading performance.</p>
                         <a href="https://copperstone.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
                                 class="fas fa-chevron-right"></i></a>
                     </div>
@@ -782,11 +893,61 @@
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=800"
                                 alt="Business"></div>
-                        <h3>Hairocraft</h3>
-                        <p>Global business presentation layer with multi-region support.</p>
+                        <h3>Hairocraft Global</h3>
+                        <p>Corporate website with structured content, responsive design, and SEO optimization.</p>
                         <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">ACCESS TERMINAL
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
+
+                    <div class="tilt-card" data-tilt>
+                        <div class="project-image"><img
+                                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800"
+                                alt="Dream Holidays Kerala"></div>
+                        <h3>Dream Holidays Kerala</h3>
+                        <p>Tourism website with engaging layout, Elementor customization, and on-page SEO setup.</p>
+                        <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">ACCESS TERMINAL
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Work With Me -->
+        <section id="why-me">
+            <div class="container">
+                <div class="tilt-card" style="max-width: 800px; margin: 0 auto; padding: 3rem;">
+                    <h2 style="margin-bottom: 2rem; text-align: center;">Why Choose Me?</h2>
+                    <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>Custom design — not template-based</li>
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>Strong frontend and UI focus</li>
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>SEO-friendly development</li>
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>Mobile-first & responsive approach</li>
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>Clean code and scalable structure</li>
+                        <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
+                                style="color: #00f2ff; margin-right: 10px;"></i>Reliable communication & timely delivery
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning & Growth -->
+        <section id="learning">
+            <div class="container" style="text-align: center;">
+                <h2 style="margin-bottom: 1.5rem;">Continuous Learning</h2>
+                <div class="tilt-card"
+                    style="display: inline-block; max-width: 600px; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05));">
+                    <i class="fab fa-python" style="font-size: 3rem; color: #ffd343; margin-bottom: 1rem;"></i>
+                    <p style="font-size: 1.1rem;">
+                        I believe in continuous improvement. Currently learning <strong>Python</strong> with the goal of
+                        moving into Django-based backend and full-stack development, enabling me to build more powerful
+                        and scalable web applications in the future.
+                    </p>
                 </div>
             </div>
         </section>
@@ -794,19 +955,32 @@
         <!-- Contact -->
         <section id="contact" style="text-align: center; padding-bottom: 12rem;">
             <div class="container">
-                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Ready to Interface?</h2>
-                <div class="tilt-card" style="display: inline-block; max-width: 600px;">
-                    <p style="text-align: center; margin-bottom: 1rem;">Initiate communication protocol. Systems
-                        standing by.</p>
-                    <p
-                        style="text-align: center; margin-bottom: 2.5rem; color: #00f2ff; font-weight: bold; font-family: var(--font-code); font-size: 1.2rem;">
-                        athulthomas0146@gmail.com
-                    </p>
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=athulthomas0146@gmail.com"
-                            target="_blank" class="gradient-btn" style="background:#fff; color:#000;">SEND EMAIL</a>
-                        <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
-                            class="gradient-btn">LINKEDIN</a>
+                <h2 style="font-size: 3.5rem; margin-bottom: 1rem;">Let’s Work Together</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem;">Looking for a developer who
+                    understands design, performance, and functionality?</p>
+
+                <div class="tilt-card" style="display: inline-block; max-width: 600px; padding: 3rem;">
+                    <div style="margin-bottom: 2rem;">
+                        <p
+                            style="text-align: center; margin-bottom: 0.5rem; color: #00f2ff; font-weight: bold; font-family: var(--font-code); font-size: 1.2rem;">
+                            <i class="fas fa-envelope" style="margin-right: 10px;"></i> athulthomas0146@gmail.com
+                        </p>
+                        <p style="text-align: center; margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem;">
+                            <i class="fab fa-whatsapp" style="margin-right: 10px; color: #25D366;"></i> +91 8943185957
+                        </p>
+                        <p style="text-align: center; margin-bottom: 0.5rem; color: var(--text-muted);">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kerala, India
+                        </p>
+                        <p style="text-align: center; margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem;">
+                            <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
+                                style="color: #fff; text-decoration: none;">
+                                <i class="fab fa-linkedin" style="margin-right: 10px; color: #0a66c2;"></i>
+                                linkedin.com/in/athul-thomas
+                            </a>
+                        </p>
+                    </div>
+                    <div style="margin-top: 2rem; font-weight: 600; color: #bd00ff;">
+                        👉 Available for Full-Time | Part-Time | Freelance | Remote opportunities.
                     </div>
                 </div>
             </div>
@@ -941,6 +1115,24 @@
                 msgs.innerHTML += `<div class="msg bot">${botT}</div>`;
                 msgs.scrollTop = msgs.scrollHeight;
             }, 600);
+        }
+
+        // --- Thinking Animation ---
+        function toggleThinking(imgContainer) {
+            imgContainer.classList.toggle('thinking');
+
+            // Manage bubble
+            let bubble = imgContainer.querySelector('.thinking-bubble');
+            if (imgContainer.classList.contains('thinking')) {
+                if (!bubble) {
+                    bubble = document.createElement('div');
+                    bubble.className = 'thinking-bubble';
+                    bubble.innerHTML = "Processing... <i class='fas fa-cog fa-spin'></i>";
+                    imgContainer.appendChild(bubble);
+                }
+            } else {
+                if (bubble) bubble.remove();
+            }
         }
     </script>
 </body>
