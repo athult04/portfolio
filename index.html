@@ -637,28 +637,7 @@
             }
         }
 
-        /* View Switching */
-        .section-view {
-            display: none;
-            opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .section-view.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* Nav Active State */
 
         /* Nav Active State */
         .nav-links a.active-link {
@@ -687,10 +666,10 @@
                     <div class="bar"></div>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#" onclick="switchView('home'); return false;">HOME</a>
-                    <a href="#" onclick="switchView('about'); return false;">ABOUT</a>
-                    <a href="#" onclick="switchView('projects'); return false;">PROJECTS</a>
-                    <a href="#" onclick="switchView('contact'); return false;">CONTACT</a>
+                    <a href="#home" onclick="toggleMenu()">HOME</a>
+                    <a href="#about" onclick="toggleMenu()">ABOUT</a>
+                    <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
+                    <a href="#contact" onclick="toggleMenu()">CONTACT</a>
                 </div>
             </nav>
         </div>
@@ -724,9 +703,8 @@
                     </p>
 
                     <div style="display: flex; gap: 1rem;">
-                        <a href="#" onclick="switchView('projects'); return false;" class="gradient-btn">VIEW MY
-                            WORK</a>
-                        <a href="#" onclick="switchView('contact'); return false;" class="gradient-btn"
+                        <a href="#projects" class="gradient-btn">VIEW MY WORK</a>
+                        <a href="#contact" class="gradient-btn"
                             style="background: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">CONTACT
                             ME</a>
                     </div>
@@ -1153,59 +1131,8 @@
     </div>
 
     <!-- Scripts -->
-    </script>
+
     <script>
-        // --- View Navigation Logic ---
-        const views = {
-            'home': ['home'],
-            'about': ['about', 'services', 'why-me', 'learning'],
-            'projects': ['projects'],
-            'contact': ['contact']
-        };
-
-        function switchView(viewName) {
-            // Check if mobile menu is open and close it
-            const nav = document.getElementById('navLinks');
-            if (nav.classList.contains('active')) {
-                toggleMenu();
-            }
-
-            // Hide all sections
-            document.querySelectorAll('section').forEach(sec => {
-                sec.style.display = 'none';
-                sec.classList.remove('section-view', 'active');
-            });
-
-            // Show target sections
-            if (views[viewName]) {
-                views[viewName].forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.style.display = 'block';
-                        el.classList.add('section-view', 'active');
-                    }
-                });
-            }
-
-            // Update Nav State
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active-link');
-                // Simple check if onclick contains the viewName
-                if (link.getAttribute('onclick').includes(`'${viewName}'`)) {
-                    link.classList.add('active-link');
-                }
-            });
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        // Initialize Home View
-        document.addEventListener('DOMContentLoaded', () => {
-            switchView('home');
-        });
-
-        // --- WhatsApp Form Logic ---
         // --- WhatsApp Form Logic ---
         function sendToWhatsApp(e) {
             e.preventDefault();
