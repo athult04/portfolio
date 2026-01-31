@@ -14,16 +14,16 @@
     <style>
         /* --- Variables & Reset --- */
         :root {
-            --bg-dark: #cfdbd5;
-            --bg-light: #e8eddf;
-            --text-main: #242424;
-            --text-muted: #4a4a4a;
+            --bg-dark: #ebebeb;
+            --bg-light: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
 
-            --accent-gradient: linear-gradient(135deg, #242424 0%, #4a4a4a 100%);
-            --accent-glow: rgba(36, 36, 36, 0.3);
+            --accent-gradient: linear-gradient(135deg, #ff6700 0%, #ff8c00 100%);
+            --accent-glow: rgba(255, 103, 0, 0.4);
 
-            --glass-bg: rgba(255, 255, 255, 0.3);
-            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(0, 0, 0, 0.05);
             --glass-highlight: rgba(255, 255, 255, 0.8);
 
             --font-main: 'Outfit', sans-serif;
@@ -52,7 +52,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #e8eddf 0%, #cfdbd5 100%);
+            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #ebebeb 100%);
         }
 
         /* --- Typography --- */
@@ -81,11 +81,11 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(232, 237, 223, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -241,7 +241,7 @@
 
         .hero-subtitle {
             font-size: 1.8rem;
-            color: #333;
+            color: #ff6700;
             margin-bottom: 1.5rem;
             font-weight: 600;
         }
@@ -357,8 +357,9 @@
         }
 
         .skill-item:hover .skill-icon {
-            background: #fff;
-            box-shadow: 0 0 20px var(--accent-glow);
+            background: #ff6700;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(255, 103, 0, 0.3);
             transform: translateY(-5px);
             border-color: transparent;
         }
@@ -390,7 +391,7 @@
             align-items: center;
             gap: 0.5rem;
             margin-top: 1rem;
-            color: #242424;
+            color: #ff6700;
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
@@ -433,7 +434,7 @@
             bottom: 80px;
             right: 0;
             width: 360px;
-            background: #e8eddf;
+            background: #ffffff;
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             overflow: hidden;
@@ -444,15 +445,15 @@
 
         .chat-header {
             padding: 1.2rem;
-            background: #cfdbd5;
-            border-bottom: 1px solid var(--glass-border);
+            background: #ff6700;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .chat-header span i {
-            color: #242424;
+            color: #fff;
             margin-right: 8px;
         }
 
@@ -493,8 +494,8 @@
 
         .chat-options {
             padding: 1rem;
-            border-top: 1px solid var(--glass-border);
-            background: #e8eddf;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            background: #ffffff;
         }
 
         .chat-btn {
