@@ -120,7 +120,7 @@
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: var(--text-main);
         }
 
         .nav-links a::after {
@@ -149,7 +149,7 @@
         .bar {
             width: 30px;
             height: 3px;
-            background-color: #fff;
+            background-color: var(--text-main);
             transition: 0.3s;
             border-radius: 2px;
         }
@@ -174,7 +174,7 @@
             transform: translateY(-50%);
             width: 600px;
             height: 600px;
-            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E path %7B fill: none; stroke: %2300f2ff; stroke-width: 0.2; opacity: 0.3; %7D %3C/style%3E%3Cpath d='M0 50 Q 25 30, 50 50 T 100 50' /%3E%3Cpath d='M0 55 Q 25 35, 50 55 T 100 55' /%3E%3Cpath d='M0 60 Q 25 40, 50 60 T 100 60' /%3E%3Cpath d='M0 45 Q 25 25, 50 45 T 100 45' /%3E%3Cpath d='M0 40 Q 25 20, 50 40 T 100 40' /%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E path %7B fill: none; stroke: %23ff6700; stroke-width: 0.2; opacity: 0.3; %7D %3C/style%3E%3Cpath d='M0 50 Q 25 30, 50 50 T 100 50' /%3E%3Cpath d='M0 55 Q 25 35, 50 55 T 100 55' /%3E%3Cpath d='M0 60 Q 25 40, 50 60 T 100 60' /%3E%3Cpath d='M0 45 Q 25 25, 50 45 T 100 45' /%3E%3Cpath d='M0 40 Q 25 20, 50 40 T 100 40' /%3E%3C/svg%3E");
             background-size: cover;
             z-index: 1;
             opacity: 0.6;
@@ -268,12 +268,12 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 103, 0, 0.3);
         }
 
         .gradient-btn:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(189, 0, 255, 0.4);
+            box-shadow: 0 20px 50px rgba(255, 103, 0, 0.4);
         }
 
         /* --- 3D Tilt Cards --- */
@@ -623,12 +623,12 @@
                 left: 0;
                 width: 100%;
                 flex-direction: column;
-                background: rgba(5, 5, 8, 0.95);
+                background: rgba(235, 235, 235, 0.98);
                 backdrop-filter: blur(20px);
                 align-items: center;
                 gap: 2rem;
                 padding: 2rem 0;
-                border-bottom: 1px solid var(--glass-border);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
                 transform: translateY(-150%);
                 transition: transform 0.4s ease;
                 z-index: -1;
@@ -643,10 +643,11 @@
 
         /* Nav Active State */
         .nav-links a.active-link {
-            color: #fff;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            font-weight: 800;
         }
 
         .nav-links a.active-link::after {
@@ -689,7 +690,7 @@
                     <!-- Typing Effect -->
                     <div class="typing-container"
                         style="background:transparent; border:none; padding:0; box-shadow:none; margin-bottom: 2rem;">
-                        <i class="fas fa-terminal" style="margin-right:8px; color:#bd00ff; font-size:0.8em;"></i>
+                        <i class="fas fa-terminal" style="margin-right:8px; color:#ff6700; font-size:0.8em;"></i>
                         <span id="typewriter" style="color: var(--text-muted);"></span><span
                             style="animation: blink 1s infinite">|</span>
                     </div>
@@ -700,7 +701,7 @@
                         performance-driven development.
                     </p>
 
-                    <p style="margin-bottom: 2rem; color: #00f2ff; font-weight: 600;">
+                    <p style="margin-bottom: 2rem; color: #ff6700; font-weight: 600;">
                         👉 Available for Full-Time | Freelance | Remote Work
                     </p>
 
@@ -722,8 +723,8 @@
         <section id="about">
             <div class="container">
                 <h2
-                    style="margin-bottom: 3rem; font-size: 2.5rem; background: var(--text-main); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 30px rgba(255,255,255,0.1);">
-                    01. Initialization <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
+                    style="margin-bottom: 3rem; font-size: 2.5rem; background: var(--text-main); -webkit-background-clip: text; color: transparent; text-shadow: none;">
+                    01. Initialization <span style="font-size:1rem; color:#ff6700; font-family:var(--font-code)">//
                         ABOUT</span>
                 </h2>
                 <div class="about-grid">
@@ -732,7 +733,7 @@
                             style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
                             <h3 style="margin-bottom:0;">Profile Status: Online</h3>
                             <img src="assets/images/avatar_v2.png" alt="Profile"
-                                style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:2px solid #00f2ff;">
+                                style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:2px solid #ff6700;">
                         </div>
                         <p style="margin-bottom: 1rem;">I’m a Frontend Web Developer with 1+ year of professional
                             experience in building custom WordPress websites from scratch. I specialize in
@@ -741,10 +742,10 @@
                         <p style="margin-bottom: 1rem;">I have hands-on experience working on live client projects
                             across multiple industries, ensuring websites are:</p>
                         <ul style="list-style: none; margin-bottom: 1rem; color: var(--text-muted);">
-                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>Fully responsive
+                            <li><i class="fas fa-check" style="color: #ff6700; margin-right: 8px;"></i>Fully responsive
                                 on all devices</li>
-                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>SEO-friendly</li>
-                            <li><i class="fas fa-check" style="color: #00f2ff; margin-right: 8px;"></i>Fast-loading and
+                            <li><i class="fas fa-check" style="color: #ff6700; margin-right: 8px;"></i>SEO-friendly</li>
+                            <li><i class="fas fa-check" style="color: #ff6700; margin-right: 8px;"></i>Fast-loading and
                                 performance optimized</li>
                         </ul>
                         <p>Along with frontend development, I have basic PHP knowledge for WordPress customization and
@@ -799,18 +800,20 @@
                             <ul style="list-style: none; color: var(--text-muted);">
                                 <li style="margin-bottom: 1.5rem; position: relative; padding-left: 20px;">
                                     <i class="fas fa-graduation-cap"
-                                        style="position: absolute; left: 0; top: 5px; color: #00f2ff;"></i>
-                                    <strong style="color: #fff;">BA Mass Communication</strong><br>Journalism & Media
+                                        style="position: absolute; left: 0; top: 5px; color: #ff6700;"></i>
+                                    <strong style="color: var(--text-main);">BA Mass
+                                        Communication</strong><br>Journalism & Media
                                 </li>
                                 <li style="position: relative; padding-left: 20px;">
                                     <i class="fas fa-certificate"
-                                        style="position: absolute; left: 0; top: 5px; color: #bd00ff;"></i>
-                                    <strong style="color: #fff;">Digital Marketing Diploma</strong><br>NACTET Certified
+                                        style="position: absolute; left: 0; top: 5px; color: #ff6700;"></i>
+                                    <strong style="color: var(--text-main);">Digital Marketing
+                                        Diploma</strong><br>NACTET Certified
                                 </li>
                             </ul>
                         </div>
                         <div class="tilt-card" data-tilt
-                            style="flex-grow: 1; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05)); border-color: rgba(255,255,255,0.1);">
+                            style="flex-grow: 1; background: #ffffff; border-color: rgba(0,0,0,0.05);">
                             <h3>Experience</h3>
                             <p><strong>1 Year</strong><br>D Soft Solutions</p>
                         </div>
@@ -828,34 +831,34 @@
                 </h2>
                 <div class="projects-grid">
                     <!-- Custom WP Dev -->
-                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
-                        <i class="fab fa-wordpress" style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #ff6700;">
+                        <i class="fab fa-wordpress" style="font-size: 2.5rem; color: #ff6700; margin-bottom: 1rem;"></i>
                         <h3>Custom WordPress Development</h3>
                         <p>Complete website development using Elementor with custom layouts, clean design, and
                             responsive structure.</p>
                     </div>
                     <!-- Elementor -->
-                    <div class="tilt-card" data-tilt style="border-top: 2px solid #bd00ff;">
-                        <i class="fab fa-elementor" style="font-size: 2.5rem; color: #bd00ff; margin-bottom: 1rem;"></i>
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #ff6700;">
+                        <i class="fab fa-elementor" style="font-size: 2.5rem; color: #ff6700; margin-bottom: 1rem;"></i>
                         <h3>Elementor Customization</h3>
                         <p>Advanced Elementor layouts with smooth animations and interactive UI elements.</p>
                     </div>
                     <!-- Frontend -->
-                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
-                        <i class="fas fa-code" style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #ff6700;">
+                        <i class="fas fa-code" style="font-size: 2.5rem; color: #ff6700; margin-bottom: 1rem;"></i>
                         <h3>Frontend Development</h3>
                         <p>HTML & CSS-based custom sections for unique designs beyond templates.</p>
                     </div>
                     <!-- SEO -->
-                    <div class="tilt-card" data-tilt style="border-top: 2px solid #bd00ff;">
-                        <i class="fas fa-search" style="font-size: 2.5rem; color: #bd00ff; margin-bottom: 1rem;"></i>
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #ff6700;">
+                        <i class="fas fa-search" style="font-size: 2.5rem; color: #ff6700; margin-bottom: 1rem;"></i>
                         <h3>SEO-Ready Setup</h3>
                         <p>On-page SEO optimization with proper structure, meta tags, and performance focus.</p>
                     </div>
                     <!-- Performance -->
-                    <div class="tilt-card" data-tilt style="border-top: 2px solid #00f2ff;">
+                    <div class="tilt-card" data-tilt style="border-top: 2px solid #ff6700;">
                         <i class="fas fa-tachometer-alt"
-                            style="font-size: 2.5rem; color: #00f2ff; margin-bottom: 1rem;"></i>
+                            style="font-size: 2.5rem; color: #ff6700; margin-bottom: 1rem;"></i>
                         <h3>Performance Optimization</h3>
                         <p>Speed optimization, image compression, and Core Web Vitals improvements.</p>
                     </div>
@@ -867,7 +870,7 @@
         <section id="projects">
             <div class="container">
                 <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">
-                    02. Deployed Units <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">//
+                    02. Deployed Units <span style="font-size:1rem; color:#ff6700; font-family:var(--font-code)">//
                         WORK</span>
                 </h2>
 
@@ -881,7 +884,8 @@
                         <p>Designed and developed a travel website using Elementor with a clean, engaging UI,
                             SEO-optimized structure, and fully responsive layouts across devices.</p>
                         <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;"><strong
-                                style="color: #fff;">Role:</strong> Layout design, Elementor customization, responsive
+                                style="color: var(--text-main);">Role:</strong> Layout design, Elementor customization,
+                            responsive
                             design, on-page SEO setup</p>
                         <a href="https://travelhope.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
                                 class="fas fa-chevron-right"></i></a>
@@ -953,7 +957,7 @@
                     <h2 style="margin-bottom: 2rem; text-align: center;">Why Choose Me?</h2>
                     <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
-                                style="color: #00f2ff; margin-right: 10px;"></i>Custom design — not template-based</li>
+                                style="color: #ff6700; margin-right: 10px;"></i>Custom design — not template-based</li>
                         <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
                                 style="color: #00f2ff; margin-right: 10px;"></i>Strong frontend and UI focus</li>
                         <li style="font-size: 1.1rem; color: var(--text-muted);"><i class="fas fa-check-circle"
@@ -974,8 +978,7 @@
         <section id="learning">
             <div class="container" style="text-align: center;">
                 <h2 style="margin-bottom: 1.5rem;">Continuous Learning</h2>
-                <div class="tilt-card"
-                    style="display: inline-block; max-width: 600px; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05));">
+                <div class="tilt-card" style="display: inline-block; max-width: 600px; background: #ffffff;">
                     <i class="fab fa-python" style="font-size: 3rem; color: #ffd343; margin-bottom: 1rem;"></i>
                     <p style="font-size: 1.1rem;">
                         I believe in continuous improvement. Currently learning <strong>Python</strong> with the goal of
@@ -996,24 +999,26 @@
                 <div class="tilt-card" style="display: inline-block; max-width: 600px; padding: 3rem;">
                     <div style="margin-bottom: 2rem;">
                         <p
-                            style="text-align: center; margin-bottom: 0.5rem; color: #00f2ff; font-weight: bold; font-family: var(--font-code); font-size: 1.2rem;">
+                            style="text-align: center; margin-bottom: 0.5rem; color: #ff6700; font-weight: bold; font-family: var(--font-code); font-size: 1.2rem;">
                             <i class="fas fa-envelope" style="margin-right: 10px;"></i> athulthomas0146@gmail.com
                         </p>
-                        <p style="text-align: center; margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem;">
+                        <p
+                            style="text-align: center; margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.1rem;">
                             <i class="fab fa-whatsapp" style="margin-right: 10px; color: #25D366;"></i> +91 7012726533
                         </p>
                         <p style="text-align: center; margin-bottom: 0.5rem; color: var(--text-muted);">
                             <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kerala, India
                         </p>
-                        <p style="text-align: center; margin-bottom: 0.5rem; color: #fff; font-size: 1.1rem;">
+                        <p
+                            style="text-align: center; margin-bottom: 0.5rem; color: var(--text-main); font-size: 1.1rem;">
                             <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
-                                style="color: #fff; text-decoration: none;">
+                                style="color: var(--text-main); text-decoration: none;">
                                 <i class="fab fa-linkedin" style="margin-right: 10px; color: #0a66c2;"></i>
                                 linkedin.com/in/athul-thomas
                             </a>
                         </p>
                     </div>
-                    <div style="margin-top: 2rem; font-weight: 600; color: #bd00ff;">
+                    <div style="margin-top: 2rem; font-weight: 600; color: #ff6700;">
                         👉 Available for Full-Time | Part-Time | Freelance | Remote opportunities.
                     </div>
                 </div>
@@ -1028,7 +1033,7 @@
                             <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Full
                                 Name</label>
                             <input type="text" id="contactName" placeholder="Enter your name" required
-                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none;">
                         </div>
 
                         <!-- Email -->
@@ -1036,7 +1041,7 @@
                             <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Email
                                 Address</label>
                             <input type="email" id="contactEmail" placeholder="Enter your email" required
-                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none;">
                         </div>
 
                         <!-- Phone -->
@@ -1045,15 +1050,15 @@
                                 WhatsApp <span style="font-size: 0.8em; opacity: 0.7;">(Optional but
                                     powerful)</span></label>
                             <input type="tel" id="contactPhone" placeholder="+91 XXXXXXXXXX"
-                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none;">
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none;">
                         </div>
 
                         <!-- Project Type -->
                         <div style="margin-bottom: 1.5rem;">
                             <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Type of
-                                Project <span style="font-size: 0.8em; color: #bd00ff;">(IMPORTANT)</span></label>
+                                Project <span style="font-size: 0.8em; color: #ff6700;">(IMPORTANT)</span></label>
                             <select id="projectType" required
-                                style="width: 100%; padding: 1rem; background: rgba(20, 20, 30, 0.95); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="Business Website">Business Website</option>
                                 <option value="Portfolio Website">Portfolio Website</option>
@@ -1069,7 +1074,7 @@
                             <label style="display: block; color: var(--text-muted); margin-bottom: 0.5rem;">Budget Range
                                 <span style="font-size: 0.8em; opacity: 0.7;">(Optional but SMART)</span></label>
                             <select id="budgetRange"
-                                style="width: 100%; padding: 1rem; background: rgba(20, 20, 30, 0.95); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none; appearance: none; cursor: pointer;">
                                 <option value="" disabled selected>Select a range</option>
                                 <option value="Below ₹15,000">Below ₹15,000</option>
                                 <option value="₹15,000 – ₹25,000">₹15,000 – ₹25,000</option>
@@ -1085,7 +1090,7 @@
                                 Details</label>
                             <textarea id="projectDetails" rows="5"
                                 placeholder="Briefly describe your requirements, number of pages, reference websites, or deadline."
-                                style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: #fff; border-radius: 8px; outline: none; font-family: var(--font-main);"></textarea>
+                                style="width: 100%; padding: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.1); color: var(--text-main); border-radius: 8px; outline: none; font-family: var(--font-main);"></textarea>
                         </div>
 
                         <button type="submit" class="gradient-btn" style="width: 100%; cursor: pointer;">
@@ -1096,8 +1101,9 @@
 
                 <!-- CTA Section -->
                 <div class="tilt-card"
-                    style="display: inline-block; max-width: 600px; padding: 3rem; margin-top: 3rem; background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), rgba(189, 0, 255, 0.1)); border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #fff;">Have a project in mind?</h3>
+                    style="display: inline-block; max-width: 600px; padding: 3rem; margin-top: 3rem; background: #ffffff; border: 1px solid rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-main);">Have a project in mind?
+                    </h3>
                     <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
                         Let’s discuss your requirements and build the right solution.
                     </p>
