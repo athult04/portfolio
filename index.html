@@ -515,6 +515,52 @@
             border-color: #00f2ff;
         }
 
+        /* Thinking Animation */
+        .hero-image.thinking {
+            animation: none;
+            transform: scale(1.05);
+        }
+
+        .thinking-bubble {
+            position: absolute;
+            top: -60px;
+            right: -40px;
+            background: #fff;
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border-bottom-left-radius: 0;
+            font-weight: 800;
+            font-family: var(--font-code);
+            font-size: 1.1rem;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .thinking-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        @keyframes popIn {
+            from {
+                transform: scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
         /* Mobile */
         @media (max-width: 768px) {
             .container {
@@ -590,6 +636,38 @@
                 transform: translateY(0);
             }
         }
+
+        /* --- Scroll Reveal Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .delay-5 {
+            transition-delay: 0.5s;
+        }
     </style>
 </head>
 
@@ -608,6 +686,7 @@
                 <div class="nav-links" id="navLinks">
                     <a href="#home" onclick="toggleMenu()">HOME</a>
                     <a href="#about" onclick="toggleMenu()">ABOUT</a>
+                    <a href="#profile" onclick="toggleMenu()">PROFILE</a>
                     <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
                     <a href="#contact" onclick="toggleMenu()">CONTACT</a>
                 </div>
@@ -645,7 +724,7 @@
                     </div>
                 </div>
 
-                <div class="hero-image">
+                <div class="hero-image" onclick="toggleThinking(this)" style="cursor: pointer;">
                     <img src="assets/images/avatar_v2.png" alt="Athul 3D Avatar">
                 </div>
             </div>
@@ -654,13 +733,13 @@
         <!-- About -->
         <section id="about">
             <div class="container">
-                <h2
+                <h2 class="reveal"
                     style="margin-bottom: 3rem; font-size: 2.5rem; background: var(--text-main); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 30px rgba(255,255,255,0.1);">
                     01. Initialization <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
                         ABOUT</span>
                 </h2>
                 <div class="about-grid">
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-1" data-tilt>
                         <div
                             style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
                             <h3 style="margin-bottom:0;">Profile Status: Online</h3>
@@ -703,7 +782,7 @@
                     </div>
 
                     <div style="display: flex; flex-direction: column; gap: 2rem;">
-                        <div class="tilt-card" data-tilt>
+                        <div class="tilt-card reveal delay-2" data-tilt>
                             <h3>Education Log</h3>
                             <ul style="list-style: none; color: var(--text-muted);">
                                 <li style="margin-bottom: 1.5rem; position: relative; padding-left: 20px;">
@@ -718,7 +797,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="tilt-card" data-tilt
+                        <div class="tilt-card reveal delay-3" data-tilt
                             style="flex-grow: 1; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05)); border-color: rgba(255,255,255,0.1);">
                             <h3>Experience</h3>
                             <p><strong>1 Year</strong><br>D Soft Solutions</p>
@@ -728,17 +807,79 @@
             </div>
         </section>
 
+        <!-- Profile -->
+        <section id="profile">
+            <div class="container">
+                <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">
+                    01.5. Operational Specs <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
+                        PROFILE</span>
+                </h2>
+                <div class="tilt-card reveal delay-1" data-tilt
+                    style="max-width: 800px; margin: 0 auto; padding: 3rem;">
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem;">
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Name</p>
+                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Athul Thomas P</h4>
+                        </div>
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Role</p>
+                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Frontend Developer</h4>
+                        </div>
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Email</p>
+                            <h4 style="font-size: 1.1rem; color: #00f2ff; font-weight: 600; word-break: break-all;">
+                                athulthomas004@gmail.com</h4>
+                        </div>
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Phone</p>
+                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">+91 7012726533</h4>
+                        </div>
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Location</p>
+                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Malappuram, Kerala</h4>
+                        </div>
+                        <div>
+                            <p
+                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                                Website</p>
+                            <h4 style="font-size: 1.2rem; color: #00f2ff; font-weight: 600;">
+                                athult04.github.io/portfolio</h4>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 3.5rem; text-align: center; border-top: 1px solid var(--glass-border); padding-top: 3rem;">
+                        <a href="#" target="_blank" class="gradient-btn"
+                            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; letter-spacing: 1px;">
+                            DOWNLOAD RESUME
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects -->
         <section id="projects">
             <div class="container">
-                <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">
+                <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">
                     02. Deployed Units <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">//
                         WORK</span>
                 </h2>
 
                 <div class="projects-grid">
                     <!-- Cards with Tilt -->
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-1" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800"
                                 alt="Dream Holidays Kerala"></div>
@@ -748,7 +889,7 @@
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-2" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
                                 alt="D Soft"></div>
@@ -758,7 +899,7 @@
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-3" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
                                 alt="Travel"></div>
@@ -768,7 +909,7 @@
                                 class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-4" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
                                 alt="Construction"></div>
@@ -778,7 +919,7 @@
                                 class="fas fa-chevron-right"></i></a>
                     </div>
 
-                    <div class="tilt-card" data-tilt>
+                    <div class="tilt-card reveal delay-5" data-tilt>
                         <div class="project-image"><img
                                 src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=800"
                                 alt="Business"></div>
@@ -793,7 +934,7 @@
 
         <!-- Contact -->
         <section id="contact" style="text-align: center; padding-bottom: 12rem;">
-            <div class="container">
+            <div class="container reveal">
                 <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Ready to Interface?</h2>
                 <div class="tilt-card" style="display: inline-block; max-width: 600px;">
                     <p style="text-align: center; margin-bottom: 1rem;">Initiate communication protocol. Systems
@@ -942,6 +1083,43 @@
                 msgs.scrollTop = msgs.scrollHeight;
             }, 600);
         }
+
+        // --- Thinking Animation ---
+        function toggleThinking(imgContainer) {
+            imgContainer.classList.toggle('thinking');
+
+            // Manage bubble
+            let bubble = imgContainer.querySelector('.thinking-bubble');
+            if (imgContainer.classList.contains('thinking')) {
+                if (!bubble) {
+                    bubble = document.createElement('div');
+                    bubble.className = 'thinking-bubble';
+                    bubble.innerHTML = "Processing... <i class='fas fa-cog fa-spin'></i>";
+                    imgContainer.appendChild(bubble);
+                }
+            } else {
+                if (bubble) bubble.remove();
+            }
+        }
+
+        // --- Scroll Reveal Animations ---
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load for elements already in view
+        reveal();
     </script>
 </body>
 
