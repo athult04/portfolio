@@ -134,8 +134,13 @@
             transition: 0.3s;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active-link::after {
             width: 100%;
+        }
+
+        .nav-links a.active-link {
+            color: #fff;
         }
 
         /* Mobile Menu Base */
@@ -928,6 +933,26 @@
                         <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">ACCESS TERMINAL
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
+
+                    <div class="tilt-card reveal delay-1" data-tilt>
+                        <div class="project-image"><img
+                                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800"
+                                alt="Education"></div>
+                        <h3>D Soft Institute</h3>
+                        <p>Industry-focused skill development training institute.</p>
+                        <a href="https://dsoftinstitute.com/" target="_blank" class="project-link">ACCESS TERMINAL
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
+
+                    <div class="tilt-card reveal delay-2" data-tilt>
+                        <div class="project-image"><img
+                                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800"
+                                alt="Digital Marketing"></div>
+                        <h3>D Soft Digital Marketing</h3>
+                        <p>Advanced digital marketing and SEO training platform.</p>
+                        <a href="https://digitalmarketing.dsoftinstitute.com/" target="_blank" class="project-link">ACCESS TERMINAL
+                            <i class="fas fa-chevron-right"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1118,8 +1143,52 @@
         }
 
         window.addEventListener("scroll", reveal);
-        // Trigger once on load for elements already in view
-        reveal();
+
+        // --- Hybrid Navigation System ---
+        function handleNavigation() {
+            let hash = window.location.hash || '#home';
+            const sections = ['home', 'about', 'profile', 'projects', 'contact'];
+            let targetId = hash.replace('#', '');
+
+            // Check if hash is valid, else fallback to home
+            if (!sections.includes(targetId)) {
+                targetId = 'home';
+                hash = '#home';
+            }
+
+            const isHome = (targetId === 'home');
+
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+
+                if (isHome || id === targetId) {
+                    el.style.display = ''; // Restore original CSS display
+                } else {
+                    el.style.display = 'none'; // Hide section
+                }
+            });
+
+            // Update active state in nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('active-link');
+                } else {
+                    link.classList.remove('active-link');
+                }
+            });
+
+            // Reset scroll if viewing a specific section page
+            if (!isHome) {
+                window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+
+            // Trigger reveal animations for the shown elements
+            setTimeout(reveal, 50);
+        }
+
+        window.addEventListener('hashchange', handleNavigation);
+        window.addEventListener('DOMContentLoaded', handleNavigation);
     </script>
 </body>
 
