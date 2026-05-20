@@ -684,18 +684,18 @@
                     <div class="bar"></div>
                 </div>
                 <div class="nav-links" id="navLinks">
-                    <a href="#home" onclick="toggleMenu()">HOME</a>
-                    <a href="#about" onclick="toggleMenu()">ABOUT</a>
-                    <a href="#profile" onclick="toggleMenu()">PROFILE</a>
-                    <a href="#projects" onclick="toggleMenu()">PROJECTS</a>
-                    <a href="#contact" onclick="toggleMenu()">CONTACT</a>
+                    <a href="index.html" onclick="toggleMenu()">HOME</a>
+                    <a href="about.html" onclick="toggleMenu()">ABOUT</a>
+                    <a href="profile.html" onclick="toggleMenu()">PROFILE</a>
+                    <a href="projects.html" onclick="toggleMenu()">PROJECTS</a>
+                    <a href="contact.html" onclick="toggleMenu()">CONTACT</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero -->
+<!-- Hero -->
         <section id="home" class="hero">
             <div class="hero-bg-wave"></div>
             <div class="container hero-content">
@@ -717,8 +717,8 @@
                     </p>
 
                     <div style="display: flex; gap: 1rem;">
-                        <a href="#projects" class="gradient-btn">VIEW WORK</a>
-                        <a href="#contact" class="gradient-btn"
+                        <a href="projects.html" class="gradient-btn">VIEW WORK</a>
+                        <a href="contact.html" class="gradient-btn"
                             style="background: transparent; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;">CONTACT
                             ME</a>
                     </div>
@@ -726,229 +726,6 @@
 
                 <div class="hero-image" onclick="toggleThinking(this)" style="cursor: pointer;">
                     <img src="assets/images/avatar_v2.png" alt="Athul 3D Avatar">
-                </div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about">
-            <div class="container">
-                <h2 class="reveal"
-                    style="margin-bottom: 3rem; font-size: 2.5rem; background: var(--text-main); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 30px rgba(255,255,255,0.1);">
-                    01. Initialization <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
-                        ABOUT</span>
-                </h2>
-                <div class="about-grid">
-                    <div class="tilt-card reveal delay-1" data-tilt>
-                        <div
-                            style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-                            <h3 style="margin-bottom:0;">Profile Status: Online</h3>
-                            <img src="assets/images/avatar_v2.png" alt="Profile"
-                                style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:2px solid #00f2ff;">
-                        </div>
-                        <p style="margin-bottom: 1rem;">I’m Athul Thomas, a WordPress Developer and Digital Marketer
-                            blending technical precision with creative flair. I build SEO-optimized, high-performance
-                            websites that don't just function—they captivate.</p>
-                        <p>Specializing in Elementor and custom integrations, I turn static ideas into fluid, responsive
-                            digital ecosystems.</p>
-
-                        <h4 style="margin-top: 2rem; margin-bottom: 1.5rem; color: #fff;">Tech Stack</h4>
-                        <div class="skill-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-wordpress"></i></div><span>WP</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-elementor"></i></div><span>Elementor</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-html5"></i></div><span>HTML5</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div><span>CSS3</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-bolt"></i></div><span>Speed</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-search"></i></div><span>SEO</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-palette"></i></div><span>Design</span>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon"><i class="fas fa-bullhorn"></i></div><span>Ads</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; gap: 2rem;">
-                        <div class="tilt-card reveal delay-2" data-tilt>
-                            <h3>Education Log</h3>
-                            <ul style="list-style: none; color: var(--text-muted);">
-                                <li style="margin-bottom: 1.5rem; position: relative; padding-left: 20px;">
-                                    <i class="fas fa-graduation-cap"
-                                        style="position: absolute; left: 0; top: 5px; color: #00f2ff;"></i>
-                                    <strong style="color: #fff;">BA Mass Communication</strong><br>Journalism & Media
-                                </li>
-                                <li style="position: relative; padding-left: 20px;">
-                                    <i class="fas fa-certificate"
-                                        style="position: absolute; left: 0; top: 5px; color: #bd00ff;"></i>
-                                    <strong style="color: #fff;">Digital Marketing Diploma</strong><br>NACTET Certified
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tilt-card reveal delay-3" data-tilt
-                            style="flex-grow: 1; background: linear-gradient(135deg, rgba(0, 242, 255, 0.05), rgba(189, 0, 255, 0.05)); border-color: rgba(255,255,255,0.1);">
-                            <h3>Experience</h3>
-                            <p><strong>1 Year</strong><br>D Soft Solutions</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Profile -->
-        <section id="profile">
-            <div class="container">
-                <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">
-                    01.5. Operational Specs <span style="font-size:1rem; color:#00f2ff; font-family:var(--font-code)">//
-                        PROFILE</span>
-                </h2>
-                <div class="tilt-card reveal delay-1" data-tilt
-                    style="max-width: 800px; margin: 0 auto; padding: 3rem;">
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem;">
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Name</p>
-                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Athul Thomas P</h4>
-                        </div>
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Role</p>
-                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Frontend Developer</h4>
-                        </div>
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Email</p>
-                            <h4 style="font-size: 1.1rem; color: #00f2ff; font-weight: 600; word-break: break-all;">
-                                athulthomas004@gmail.com</h4>
-                        </div>
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Phone</p>
-                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">+91 7012726533</h4>
-                        </div>
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Location</p>
-                            <h4 style="font-size: 1.2rem; color: #fff; font-weight: 600;">Malappuram, Kerala</h4>
-                        </div>
-                        <div>
-                            <p
-                                style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                                Website</p>
-                            <h4 style="font-size: 1.2rem; color: #00f2ff; font-weight: 600;">
-                                athult04.github.io/portfolio</h4>
-                        </div>
-                    </div>
-
-                    <div
-                        style="margin-top: 3.5rem; text-align: center; border-top: 1px solid var(--glass-border); padding-top: 3rem;">
-                        <a href="#" target="_blank" class="gradient-btn"
-                            style="display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; letter-spacing: 1px;">
-                            DOWNLOAD RESUME
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects">
-            <div class="container">
-                <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">
-                    02. Deployed Units <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">//
-                        WORK</span>
-                </h2>
-
-                <div class="projects-grid">
-                    <!-- Cards with Tilt -->
-                    <div class="tilt-card reveal delay-1" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800"
-                                alt="Dream Holidays Kerala"></div>
-                        <h3>Dream Holidays Kerala</h3>
-                        <p>Travel and tourism platform showcasing Kerala's destinations.</p>
-                        <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card reveal delay-2" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
-                                alt="D Soft"></div>
-                        <h3>D Soft Tech</h3>
-                        <p>Corporate infrastructure solution handling high-traffic data.</p>
-                        <a href="https://d-softtechnologies.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card reveal delay-3" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
-                                alt="Travel"></div>
-                        <h3>Travel Hope</h3>
-                        <p>Booking engine with SEO-optimized destination rendering.</p>
-                        <a href="https://travelhope.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
-                                class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card reveal delay-4" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800"
-                                alt="Construction"></div>
-                        <h3>Copperstone</h3>
-                        <p>Visual-heavy portfolio for construction architecture.</p>
-                        <a href="https://copperstone.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
-                                class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card reveal delay-5" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1560869713-7d0a29430803?auto=format&fit=crop&q=80&w=800"
-                                alt="Business"></div>
-                        <h3>Hairocraft</h3>
-                        <p>Global business presentation layer with multi-region support.</p>
-                        <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" style="text-align: center; padding-bottom: 12rem;">
-            <div class="container reveal">
-                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Ready to Interface?</h2>
-                <div class="tilt-card" style="display: inline-block; max-width: 600px;">
-                    <p style="text-align: center; margin-bottom: 1rem;">Initiate communication protocol. Systems
-                        standing by.</p>
-                    <p
-                        style="text-align: center; margin-bottom: 2.5rem; color: #00f2ff; font-weight: bold; font-family: var(--font-code); font-size: 1.2rem;">
-                        athulthomas0146@gmail.com
-                    </p>
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=athulthomas0146@gmail.com"
-                            target="_blank" class="gradient-btn" style="background:#fff; color:#000;">SEND EMAIL</a>
-                        <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
-                            class="gradient-btn">LINKEDIN</a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1073,8 +850,8 @@
             let userT = "", botT = "";
 
             if (type === 'skills') { userT = "Assess Capabilities"; botT = "Scanning... Identified advanced proficiency in WordPress CMS, Elementor Pro, CSS3 styling architecture, and On-Page SEO algorithms."; }
-            else if (type === 'experience') { userT = "Query Experience Log"; botT = "Log retrieved: 1+ Year tenure at D Soft Solutions. Successfully deployed responsive corporate infrastructures."; }
-            else { userT = "Establish Contact"; botT = "Comms Link Open: Email athulthomas0146@gmail.com. Response expectancy: < 24 hours."; }
+            else if (type === 'experience') { userT = "Query Experience Log"; botT = "Log retrieved: Frontend Web Developer at D Soft Solutions (Feb 2025 - Present). Previously Intern (Dec 2024 - Jan 2025)."; }
+            else { userT = "Establish Contact"; botT = "Comms Link Open: Email athulthomas004@gmail.com. Response expectancy: < 24 hours."; }
 
             msgs.innerHTML += `<div class="msg user">${userT}</div>`;
             msgs.scrollTop = msgs.scrollHeight;
