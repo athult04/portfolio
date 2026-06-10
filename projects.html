@@ -4,927 +4,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athul Thomas P | Creative Developer</title>
+    <title>Portfolio | Creative Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* --- Variables & Reset --- */
-        :root {
-            --bg-dark: #050508;
-            --bg-light: #10101a;
-            --text-main: #ffffff;
-            --text-muted: #a0a0b0;
-
-            --accent-gradient: linear-gradient(135deg, #00f2ff 0%, #bd00ff 100%);
-            --accent-glow: rgba(0, 242, 255, 0.5);
-
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --glass-highlight: rgba(255, 255, 255, 0.1);
-
-            --font-main: 'Outfit', sans-serif;
-            --font-code: 'JetBrains Mono', monospace;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Background */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050508 100%);
-        }
-
-        /* --- Typography --- */
-        h1,
-        h2,
-        h3 {
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        /* --- Layout --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 8rem 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* --- Header --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(5, 5, 8, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            font-family: var(--font-code);
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            position: relative;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: 0.3s;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--accent-gradient);
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Mobile Menu Base */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 6px;
-        }
-
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: #fff;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: left;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Background Wave */
-        .hero-bg-wave {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-            width: 600px;
-            height: 600px;
-            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E path %7B fill: none; stroke: %2300f2ff; stroke-width: 0.2; opacity: 0.3; %7D %3C/style%3E%3Cpath d='M0 50 Q 25 30, 50 50 T 100 50' /%3E%3Cpath d='M0 55 Q 25 35, 50 55 T 100 55' /%3E%3Cpath d='M0 60 Q 25 40, 50 60 T 100 60' /%3E%3Cpath d='M0 45 Q 25 25, 50 45 T 100 45' /%3E%3Cpath d='M0 40 Q 25 20, 50 40 T 100 40' /%3E%3C/svg%3E");
-            background-size: cover;
-            z-index: 1;
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
-
-        .hero-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .hero-image {
-            width: 450px;
-            height: 450px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-            z-index: 2;
-            mix-blend-mode: lighten;
-            /* Blend black bg */
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            mask-image: radial-gradient(ellipse at center, black 50%, transparent 70%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 70%);
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 5.5rem;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #a0a0b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: #00f2ff;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        /* Typing Effect with Gradient Cursor */
-        .typing-container {
-            font-family: var(--font-code);
-            margin-bottom: 2rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-        }
-
-        .gradient-btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--accent-gradient);
-            border: none;
-            color: #fff;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
-        }
-
-        .gradient-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(189, 0, 255, 0.4);
-        }
-
-        /* --- 3D Tilt Cards --- */
-        .tilt-card {
-            background: rgba(20, 20, 30, 0.6);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.1s;
-            /* Fast transition for tilt */
-            transform-style: preserve-3d;
-        }
-
-        /* Card highlight effect */
-        .tilt-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        }
-
-        .tilt-card h3 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .tilt-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        /* Grid Layouts */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        /* Skills Grid */
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: #fff;
-            transition: 0.3s;
-        }
-
-        .skill-item:hover .skill-icon {
-            background: var(--accent-gradient);
-            box-shadow: 0 0 20px var(--accent-glow);
-            transform: translateY(-5px);
-            border-color: transparent;
-        }
-
-        /* Project Images */
-        .project-image {
-            height: 220px;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
-            opacity: 0.8;
-        }
-
-        .tilt-card:hover .project-image img {
-            transform: scale(1.1);
-            opacity: 1;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            color: #00f2ff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .project-link:hover {
-            padding-left: 5px;
-            text-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        /* --- Chat Bot --- */
-        #chatbot {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 2000;
-        }
-
-        .chat-toggle {
-            width: 65px;
-            height: 65px;
-            background: var(--accent-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
-            transition: 0.3s;
-        }
-
-        .chat-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px var(--accent-glow);
-        }
-
-        .chat-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 360px;
-            background: #0f0f15;
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            overflow: hidden;
-            display: none;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-            flex-direction: column;
-        }
-
-        .chat-header {
-            padding: 1.2rem;
-            background: linear-gradient(90deg, #0d0d15, #151525);
-            border-bottom: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header span i {
-            color: #00f2ff;
-            margin-right: 8px;
-        }
-
-        .chat-messages {
-            height: 350px;
-            overflow-y: auto;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            background: radial-gradient(circle at center, #13131f 0%, #0a0a10 100%);
-        }
-
-        .msg {
-            padding: 0.8rem 1.2rem;
-            border-radius: 15px;
-            max-width: 85%;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .msg.bot {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--glass-border);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            color: #d0d0e0;
-        }
-
-        .msg.user {
-            background: var(--accent-gradient);
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-            color: #fff;
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .chat-options {
-            padding: 1rem;
-            border-top: 1px solid var(--glass-border);
-            background: #0f0f15;
-        }
-
-        .chat-btn {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--glass-border);
-            color: #fff;
-            text-align: left;
-            margin-bottom: 0.5rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-            font-size: 0.9rem;
-        }
-
-        .chat-btn:hover {
-            background: rgba(0, 242, 255, 0.1);
-            border-color: #00f2ff;
-        }
-
-        /* Thinking Animation */
-        .hero-image.thinking {
-            animation: none;
-            transform: scale(1.05);
-        }
-
-        .thinking-bubble {
-            position: absolute;
-            top: -60px;
-            right: -40px;
-            background: #fff;
-            color: #000;
-            padding: 15px 25px;
-            border-radius: 30px;
-            border-bottom-left-radius: 0;
-            font-weight: 800;
-            font-family: var(--font-code);
-            font-size: 1.1rem;
-            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .thinking-bubble::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            clip-path: polygon(0 0, 100% 0, 0 100%);
-        }
-
-        @keyframes popIn {
-            from {
-                transform: scale(0) rotate(-10deg);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1) rotate(0);
-                opacity: 1;
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            .hero {
-                text-align: center;
-                padding-top: 100px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                justify-items: center;
-            }
-
-            .hero-text {
-                align-items: center;
-            }
-
-            .hero-image {
-                width: 280px;
-                height: 280px;
-                order: -1;
-                margin-bottom: 0;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skill-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .chat-window {
-                width: 300px;
-                right: -10px;
-            }
-
-            /* Mobile Nav */
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                flex-direction: column;
-                background: rgba(5, 5, 8, 0.95);
-                backdrop-filter: blur(20px);
-                align-items: center;
-                gap: 2rem;
-                padding: 2rem 0;
-                border-bottom: 1px solid var(--glass-border);
-                transform: translateY(-150%);
-                transition: transform 0.4s ease;
-                z-index: -1;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-            }
-        }
-
-        /* --- Scroll Reveal Animations --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .delay-1 {
-            transition-delay: 0.1s;
-        }
-
-        .delay-2 {
-            transition-delay: 0.2s;
-        }
-
-        .delay-3 {
-            transition-delay: 0.3s;
-        }
-
-        .delay-4 {
-            transition-delay: 0.4s;
-        }
-
-        .delay-5 {
-            transition-delay: 0.5s;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <canvas id="bg-canvas"></canvas>
-
     <header>
         <div class="container">
             <nav>
-                <div class="logo">ATHUL</div>
-                <div class="menu-toggle" onclick="toggleMenu()">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
+                <div class="logo">
+                    <a href="index.html">Portfolio<span style="color:var(--accent-color)">.</span></a>
                 </div>
-                <div class="nav-links" id="navLinks">
-                    <a href="index.html" onclick="toggleMenu()">HOME</a>
-                    <a href="about.html" onclick="toggleMenu()">ABOUT</a>
-                    <a href="profile.html" onclick="toggleMenu()">PROFILE</a>
-                    <a href="projects.html" onclick="toggleMenu()">PROJECTS</a>
-                    <a href="contact.html" onclick="toggleMenu()">CONTACT</a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
                 </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="">Home</a></li>
+                    <li><a href="about.html" class="">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contact.html" class="">Contact</a></li>
+                    <li><a href="assets/resume.pdf" class="btn" target="_blank">Resume</a></li>
+                </ul>
             </nav>
         </div>
     </header>
-
     <main>
-<!-- Projects -->
+
         <section id="projects">
             <div class="container">
-                <h2 class="reveal" style="margin-bottom: 3rem; font-size: 2.5rem;">
-                    02. Deployed Units <span style="font-size:1rem; color:#bd00ff; font-family:var(--font-code)">//
-                        WORK</span>
-                </h2>
+                <h2 style="font-size: 2rem; margin-bottom: 2rem;"><span
+                        style="color:var(--accent-color); font-family: monospace; font-size: 1.5rem; margin-right: 10px;">02.</span>Some
+                    Things I've Built</h2>
 
                 <div class="projects-grid">
-                    <div class="tilt-card reveal delay-1" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
-                                alt="D Soft Institute"></div>
-                        <h3>D Soft Institute</h3>
-                        <p>Developed and maintained a responsive WordPress website for an educational institute.</p>
-                        <a href="https://dsoftinstitute.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+                                alt="E-Commerce Dashboard">
+                        </div>
+                        <div class="project-info">
+                            <div class="tags">
+                                <span class="tag">React</span>
+                                <span class="tag">D3.js</span>
+                                <span class="tag">Node.js</span>
+                            </div>
+                            <h3>E-Commerce Dashboard</h3>
+                            <p>A comprehensive analytics dashboard for online retailers featuring real-time data
+                                visualization.</p>
+                            <a href="#"
+                                style="display: inline-block; margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">View
+                                Project &rarr;</a>
+                        </div>
                     </div>
 
-                    <div class="tilt-card reveal delay-2" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800"
-                                alt="Digital Marketing"></div>
-                        <h3>Digital Marketing - D Soft Institute</h3>
-                        <p>Created a modern digital marketing training website with responsive design.</p>
-                        <a href="https://digitalmarketing.dsoftinstitute.com" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800"
+                                alt="Social Media App">
+                        </div>
+                        <div class="project-info">
+                            <div class="tags">
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Tailwind</span>
+                            </div>
+                            <h3>Social Media App</h3>
+                            <p>A responsive social platform with real-time messaging and story sharing capabilities.</p>
+                            <a href="#"
+                                style="display: inline-block; margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">View
+                                Project &rarr;</a>
+                        </div>
                     </div>
 
-                    <div class="tilt-card reveal delay-3" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800"
-                                alt="Travel Hope"></div>
-                        <h3>Travel Hope</h3>
-                        <p>Created a modern and responsive website for travel services.</p>
-                        <a href="https://travelhope.in/" target="_blank" class="project-link">ACCESS TERMINAL <i
-                                class="fas fa-chevron-right"></i></a>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1554224155-9840675877f2?auto=format&fit=crop&q=80&w=800"
+                                alt="Finance Tracker">
+                        </div>
+                        <div class="project-info">
+                            <div class="tags">
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Next.js</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <h3>Finance Tracker</h3>
+                            <p>Personal finance management tool with budget planning and expense tracking features.</p>
+                            <a href="#"
+                                style="display: inline-block; margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">View
+                                Project &rarr;</a>
+                        </div>
                     </div>
 
-                    <div class="tilt-card reveal delay-4" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800"
-                                alt="Hairocraft Global"></div>
-                        <h3>Hairocraft Global</h3>
-                        <p>Built a responsive website for a global hair product company.</p>
-                        <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">ACCESS TERMINAL <i
-                                class="fas fa-chevron-right"></i></a>
-                    </div>
-
-                    <div class="tilt-card reveal delay-5" data-tilt>
-                        <div class="project-image"><img
-                                src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=800"
-                                alt="Dream Holidays Kerala"></div>
-                        <h3>Dream Holidays Kerala</h3>
-                        <p>Developed a travel website for tour packages and trip planning.</p>
-                        <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">ACCESS TERMINAL
-                            <i class="fas fa-chevron-right"></i></a>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+                                alt="AI Image Generator">
+                        </div>
+                        <div class="project-info">
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">React</span>
+                            </div>
+                            <h3>AI Image Generator</h3>
+                            <p>Web interface for generating images using stable diffusion models via API.</p>
+                            <a href="#"
+                                style="display: inline-block; margin-top: 1rem; color: var(--accent-color); font-size: 0.9rem;">View
+                                Project &rarr;</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
-
-    <!-- AI Chat Widget -->
-    <div id="chatbot">
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <div><i class="fas fa-robot"></i> <span>ATHUL.BOT</span></div>
-                <span style="cursor: pointer; opacity: 0.7;" onclick="toggleChat()"><i class="fas fa-times"></i></span>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="msg bot">System Online. Hello! I'm the AI assistant. Ask me anything about Athul's work.
-                </div>
-            </div>
-            <div class="chat-options">
-                <button class="chat-btn" onclick="askAI('skills')">Assess Capabilities</button>
-                <button class="chat-btn" onclick="askAI('experience')">Query Experience Log</button>
-                <button class="chat-btn" onclick="askAI('contact')">Establish Contact</button>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Portfolio. Built with HTML & Vanilla JS.</p>
         </div>
-        <div class="chat-toggle" onclick="toggleChat()">
-            <i class="fas fa-comment-dots" style="color:#fff; font-size: 1.5rem;"></i>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // --- 3D Particle Space ---
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        window.addEventListener('resize', resize);
-        resize();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2;
-                this.speedX = (Math.random() - 0.5) * 0.2;
-                this.speedY = (Math.random() - 0.5) * 0.2;
-                this.opacity = Math.random() * 0.5 + 0.1;
-            }
-            update() {
-                this.x += this.speedX; this.y += this.speedY;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        // Create Starfield
-        for (let i = 0; i < 150; i++) particles.push(new Particle());
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animateCanvas);
-        }
-        animateCanvas();
-
-        // --- Typing Effect ---
-        const textToType = "Executing Portfolio Sequence...";
-        const typeDest = document.getElementById('typewriter');
-        let typeIdx = 0;
-
-        function typeWriter() {
-            if (typeIdx < textToType.length) {
-                typeDest.innerHTML += textToType.charAt(typeIdx);
-                typeIdx++;
-                setTimeout(typeWriter, 80);
-            }
-        }
-        setTimeout(typeWriter, 1000);
-
-        // --- 3D Tilt Effect Logic ---
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg tilt
-                const rotateY = ((x - centerX) / centerX) * 5;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-            });
-        });
-
-        // --- Chat Bot ---
-        function toggleChat() {
-            const w = document.getElementById('chatWindow');
-            w.style.display = w.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // --- Mobile Menu ---
-        function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
-        }
-
-        function askAI(type) {
-            const msgs = document.getElementById('chatMessages');
-            let userT = "", botT = "";
-
-            if (type === 'skills') { userT = "Assess Capabilities"; botT = "Scanning... Identified advanced proficiency in WordPress CMS, Elementor Pro, CSS3 styling architecture, and On-Page SEO algorithms."; }
-            else if (type === 'experience') { userT = "Query Experience Log"; botT = "Log retrieved: Frontend Web Developer at D Soft Solutions (Feb 2025 - Present). Previously Intern (Dec 2024 - Jan 2025)."; }
-            else { userT = "Establish Contact"; botT = "Comms Link Open: Email athulthomas004@gmail.com. Response expectancy: < 24 hours."; }
-
-            msgs.innerHTML += `<div class="msg user">${userT}</div>`;
-            msgs.scrollTop = msgs.scrollHeight;
-            setTimeout(() => {
-                msgs.innerHTML += `<div class="msg bot">${botT}</div>`;
-                msgs.scrollTop = msgs.scrollHeight;
-            }, 600);
-        }
-
-        // --- Thinking Animation ---
-        function toggleThinking(imgContainer) {
-            imgContainer.classList.toggle('thinking');
-
-            // Manage bubble
-            let bubble = imgContainer.querySelector('.thinking-bubble');
-            if (imgContainer.classList.contains('thinking')) {
-                if (!bubble) {
-                    bubble = document.createElement('div');
-                    bubble.className = 'thinking-bubble';
-                    bubble.innerHTML = "Processing... <i class='fas fa-cog fa-spin'></i>";
-                    imgContainer.appendChild(bubble);
-                }
-            } else {
-                if (bubble) bubble.remove();
-            }
-        }
-
-        // --- Scroll Reveal Animations ---
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
-        // Trigger once on load for elements already in view
-        reveal();
-    </script>
+    </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
