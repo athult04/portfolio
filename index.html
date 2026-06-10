@@ -889,6 +889,8 @@
                     tag.style.margin = '0';
                     tag.style.cursor = 'grab';
                     tag.style.userSelect = 'none';
+                    // Set initial transform so they are visible before physics starts
+                    tag.style.transform = `translate(${x - w/2}px, ${y - h/2}px)`;
                 });
                 
                 // Mouse interaction
@@ -901,11 +903,13 @@
                     }
                 });
                 
-                // Fix scrolling issue on touch devices when interacting with element
-                if(mouseConstraint.mouse.element) {
-                    mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
-                    mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
-                }
+                // Safely remove scrolling interference
+                try {
+                    if(mouseConstraint.mouse.element) {
+                        mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
+                        mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
+                    }
+                } catch(e) {}
 
                 Composite.add(world, mouseConstraint);
 
