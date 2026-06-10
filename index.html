@@ -1082,6 +1082,26 @@
                 msgs.innerHTML += `<div class="msg bot">${botT}</div>`;
                 msgs.scrollTop = msgs.scrollHeight;
             }, 600);
+            msgs.scrollTop = msgs.scrollHeight;
+        }, 600);
+        }
+
+        // --- Thinking Animation ---
+        function toggleThinking(imgContainer) {
+            imgContainer.classList.toggle('thinking');
+
+            // Manage bubble
+            let bubble = imgContainer.querySelector('.thinking-bubble');
+            if (imgContainer.classList.contains('thinking')) {
+                if (!bubble) {
+                    bubble = document.createElement('div');
+                    bubble.className = 'thinking-bubble';
+                    bubble.innerHTML = "Processing... <i class='fas fa-cog fa-spin'></i>";
+                    imgContainer.appendChild(bubble);
+                }
+            } else {
+                if (bubble) bubble.remove();
+            }
         }
 
         // --- Thinking Animation ---
