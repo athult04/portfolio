@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanshika | Front-End Developer</title>
+    <title>Athul Thomas P | Front-End & WordPress Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -161,7 +161,7 @@
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 20px;
@@ -171,7 +171,7 @@
         .hero-desc {
             font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 500px;
+            max-width: 550px;
             margin-bottom: 40px;
             line-height: 1.6;
         }
@@ -222,7 +222,9 @@
         .hero-image img {
             max-width: 100%;
             border-radius: 20px;
-            filter: grayscale(100%);
+            /* Placeholder styling - replace src with actual photo */
+            object-fit: cover;
+            border: 1px solid var(--card-border);
         }
 
         /* Services Section */
@@ -345,10 +347,107 @@
             color: var(--text-muted);
         }
 
+        /* Experience & Education */
+        .timeline-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .timeline-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-org {
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .timeline-desc ul {
+            padding-left: 20px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background: #333;
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
@@ -389,7 +488,7 @@
             .hero-actions {
                 justify-content: center;
             }
-            .services-grid, .skills-grid {
+            .services-grid, .skills-grid, .projects-grid, .timeline-container {
                 grid-template-columns: repeat(2, 1fr);
             }
             .nav-links {
@@ -401,7 +500,7 @@
             .hero-title {
                 font-size: 3rem;
             }
-            .services-grid, .skills-grid {
+            .services-grid, .skills-grid, .projects-grid, .timeline-container {
                 grid-template-columns: 1fr;
             }
             .stats-grid {
@@ -415,34 +514,36 @@
 
     <header>
         <div class="container nav-container">
-            <a href="#" class="logo">vm</a>
+            <a href="#" class="logo">at</a>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
-            <a href="#contact" class="btn-talk">Let's Talk</a>
+            <a href="mailto:athulthomas004@gmail.com" class="btn-talk">Let's Talk</a>
         </div>
     </header>
 
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
-                <div class="hero-greeting">I am Vanshika</div>
-                <h1 class="hero-title">Front-End<br>Developer & Designer</h1>
-                <p class="hero-desc">Blending thoughtful UI design with clean, responsive development to create websites that look great and perform flawlessly.</p>
+                <div class="hero-greeting">I am Athul Thomas P</div>
+                <h1 class="hero-title">WordPress Developer<br>& Front-End Engineer</h1>
+                <p class="hero-desc">I am a passionate and detail-oriented WordPress Developer with experience in creating responsive and user-friendly websites using Elementor, HTML, CSS, JavaScript, and PHP.</p>
                 <div class="hero-actions">
                     <a href="#" class="btn-cv">Download CV</a>
                     <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/athult04" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Vanshika">
+                <!-- IMPORTANT: Please save your profile photo as 'profile.jpg' in your assets folder and update this src -->
+                <img src="assets/profile.jpg" alt="Athul Thomas P" onerror="this.src='https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=600'">
             </div>
         </div>
     </section>
@@ -451,40 +552,40 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Services</h2>
-                <p class="section-subtitle">Designing clean scalable responsive websites</p>
+                <p class="section-subtitle">Delivering high-quality web solutions</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>UI/UX Website<br>Design</h3>
-                    <p>Clean, user-focused layouts with clear structure, smooth navigation, and strong visual hierarchy.</p>
+                    <h3>WordPress<br>Development</h3>
+                    <p>Building clean, modern, and functional web experiences using custom Elementor setups.</p>
                     <div class="service-pills">
-                        <div class="pill">Modern layouts</div>
-                        <div class="pill">Responsive design</div>
+                        <div class="pill">Theme Customization</div>
+                        <div class="pill">Elementor Builder</div>
                     </div>
                 </div>
                 <div class="service-card">
                     <h3>Frontend<br>Development</h3>
-                    <p>Responsive interfaces using HTML, CSS, and JavaScript for clean, consistent, reliable performance.</p>
+                    <p>Creating responsive layouts using HTML5, CSS3, JavaScript, and PHP for reliable performance.</p>
                     <div class="service-pills">
-                        <div class="pill">Clean HTML/CSS</div>
-                        <div class="pill">Smooth interactions</div>
+                        <div class="pill">Responsive Design</div>
+                        <div class="pill">Clean UI Layouts</div>
                     </div>
                 </div>
                 <div class="service-card">
-                    <h3>Performance &<br>Responsiveness</h3>
-                    <p>Fast, mobile-first websites optimized for speed, accessibility, and dependable performance.</p>
+                    <h3>SEO<br>Optimization</h3>
+                    <p>Performing on-page SEO including meta tags, heading structure, and internal linking to rank higher.</p>
                     <div class="service-pills">
-                        <div class="pill">Speed optimization</div>
-                        <div class="pill">Asset efficiency</div>
+                        <div class="pill">On-Page SEO</div>
+                        <div class="pill">Content Structure</div>
                     </div>
                 </div>
                 <div class="service-card">
-                    <h3>WordPress<br>Implementation</h3>
-                    <p>Lightweight WordPress setups with easy updates, fast loading, and scalable, clean, customizable layouts.</p>
+                    <h3>Performance &<br>Animations</h3>
+                    <p>Website speed optimization, custom CSS, and implementing interactive design elements.</p>
                     <div class="service-pills">
-                        <div class="pill">Theme setup</div>
-                        <div class="pill">Easy management</div>
+                        <div class="pill">Speed Optimization</div>
+                        <div class="pill">UI Animations</div>
                     </div>
                 </div>
             </div>
@@ -498,34 +599,118 @@
             </div>
             
             <div class="about-content">
-                <p class="about-desc">I'm a front-end developer and designer passionate about crafting clean, intuitive, and responsive digital experiences. I focus on turning ideas into seamless interfaces by understanding user needs, designing thoughtful UI layouts, and ensuring smooth interactions across devices.</p>
+                <p class="about-desc">I enjoy building clean, modern, and functional web experiences while continuously learning new technologies and improving my skills. I am committed to delivering quality work with creativity, performance, and user experience in mind.</p>
                 
                 <h3 class="approach-title">My Approach</h3>
                 <div class="approach-pills">
-                    <div class="approach-pill"><span>01</span> Understand users & goals</div>
-                    <div class="approach-pill"><span>02</span> Create clean UI layouts</div>
-                    <div class="approach-pill"><span>03</span> Responsive experiences</div>
+                    <div class="approach-pill"><span>01</span> Quality & Creativity</div>
+                    <div class="approach-pill"><span>02</span> Performance Focused</div>
+                    <div class="approach-pill"><span>03</span> User Experience First</div>
                 </div>
                 
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-num">02+</div>
+                        <div class="stat-num">01+</div>
                         <div class="stat-label">Years Of Experience</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-num">15+</div>
+                        <div class="stat-num">05+</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-num">05+</div>
-                        <div class="stat-label">Clients Served</div>
+                        <div class="stat-num">02+</div>
+                        <div class="stat-label">Certifications</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" style="padding-bottom: 100px;">
+    <section id="experience" style="background-color: #111;">
+        <div class="container">
+            <div class="timeline-container">
+                <div class="timeline-col">
+                    <h3>Work Experience</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Feb 2025 - Present</div>
+                        <div class="timeline-title">WordPress | Frontend Web Developer</div>
+                        <div class="timeline-org">D Soft Solutions</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Designed and developed multiple live WordPress websites using Elementor.</li>
+                                <li>Created custom responsive layouts using HTML, CSS, and Elementor styling.</li>
+                                <li>Implemented UI animations and interactive design elements.</li>
+                                <li>Performed on-page SEO including meta tags and structure.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Dec 2024 - Jan 2025</div>
+                        <div class="timeline-title">WordPress Developer Intern</div>
+                        <div class="timeline-org">D Soft Solutions</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li>Assisted in developing WordPress websites using Elementor.</li>
+                                <li>Worked on responsive layouts using HTML and CSS.</li>
+                                <li>Supported on-page SEO setup including meta tags.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-col">
+                    <h3>Educational History</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021 - 2024</div>
+                        <div class="timeline-title">BA Mass Communication & Journalism</div>
+                        <div class="timeline-org">University of Calicut</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-title">Diploma in Digital Marketing</div>
+                        <div class="timeline-org">D Soft Technologies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projects</h2>
+                <p class="section-subtitle">My recent work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">D Soft Institute</h3>
+                    <p class="project-desc">Developed and maintained a responsive WordPress website for an educational institute.</p>
+                    <a href="https://dsoftinstitute.com/" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Digital Marketing - D Soft</h3>
+                    <p class="project-desc">Created a modern digital marketing training website with responsive design.</p>
+                    <a href="https://digitalmarketing.dsoftinstitute.com/" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Travel Hope</h3>
+                    <p class="project-desc">Created a modern and responsive website for travel services.</p>
+                    <a href="https://travelhope.in/" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Hairocraft Global</h3>
+                    <p class="project-desc">Built a responsive website for a global hair product company.</p>
+                    <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">Dream Holidays Kerala</h3>
+                    <p class="project-desc">Developed a travel website for tour packages and trip planning.</p>
+                    <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="padding-bottom: 100px; background-color: #111;">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Skills</h2>
@@ -534,38 +719,29 @@
             
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>Core Skills</h3>
+                    <h3>WordPress</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag">UI/UX layout</div>
-                        <div class="skill-tag">Frontend Dev</div>
-                        <div class="skill-tag">Responsive Web Design</div>
-                        <div class="skill-tag">Component-Based Design</div>
+                        <div class="skill-tag">WordPress Development</div>
+                        <div class="skill-tag">Elementor Builder</div>
+                        <div class="skill-tag">Theme Customization</div>
                     </div>
                 </div>
                 <div class="skill-card">
                     <h3>Frontend Tech</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag">HTML</div>
-                        <div class="skill-tag">CSS</div>
-                        <div class="skill-tag">JS</div>
-                        <div class="skill-tag">WordPress</div>
+                        <div class="skill-tag">HTML5</div>
+                        <div class="skill-tag">CSS3</div>
+                        <div class="skill-tag">JavaScript</div>
+                        <div class="skill-tag">PHP</div>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>Design Tools</h3>
+                    <h3>Optimization & Design</h3>
                     <div class="skill-tags">
-                        <div class="skill-tag">Figma</div>
-                        <div class="skill-tag">Photoshop</div>
-                        <div class="skill-tag">Illustrator</div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools & Interaction</h3>
-                    <div class="skill-tags">
-                        <div class="skill-tag">GitHub</div>
-                        <div class="skill-tag">Netlify</div>
-                        <div class="skill-tag">GSAP</div>
-                        <div class="skill-tag">UI interactions</div>
+                        <div class="skill-tag">Responsive Web Design</div>
+                        <div class="skill-tag">Custom CSS & Animations</div>
+                        <div class="skill-tag">On-Page SEO</div>
+                        <div class="skill-tag">Speed Optimization</div>
                     </div>
                 </div>
             </div>
