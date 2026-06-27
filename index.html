@@ -427,6 +427,57 @@
             padding-left: 20px;
         }
 
+        .cert-item {
+            border-color: #22c55e;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .cert-item:hover {
+            border-color: #4ade80;
+        }
+
+        .cert-icon {
+            color: #22c55e;
+            font-size: 2.5rem;
+            margin-top: 5px;
+        }
+
+        .cert-content {
+            flex: 1;
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .verified-badge {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cert-issued {
+            color: #22c55e;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
         /* Projects */
         .projects-grid {
             display: grid;
@@ -707,11 +758,19 @@
                         <div class="timeline-title">Diploma in Digital Marketing</div>
                         <div class="timeline-org">D Soft Technologies</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2026</div>
-                        <div class="timeline-title">NACCT Certificate</div>
-                        <div class="timeline-org">National Council for Computer Training (NACCT)</div>
-                        <div class="timeline-desc">Certified in Computer Application and Office Automation</div>
+                    <div class="timeline-item cert-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-header">
+                                <div class="cert-title">NACCT Certificate</div>
+                                <div class="verified-badge"><i class="fas fa-check-circle"></i> Verified</div>
+                            </div>
+                            <div class="timeline-org" style="margin-bottom: 10px;">National Council for Computer Training (NACCT)</div>
+                            <div class="timeline-desc">Certified in Computer Application and Office Automation</div>
+                            <div class="cert-issued">Issued: 2026</div>
+                        </div>
                     </div>
                 </div>
             </div>
