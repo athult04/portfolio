@@ -4,11 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Athul Thomas P | Front-End & WordPress Developer</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <style>
         :root {
             --bg-color: #0d0d0d;
@@ -67,6 +73,7 @@
         }
 
         /* Header */
+
         header {
             padding: 20px 0;
             position: fixed;
@@ -138,6 +145,7 @@
         }
 
         /* Hero Section */
+
         .hero {
             padding-top: 150px;
             min-height: 100vh;
@@ -230,6 +238,7 @@
         }
 
         /* Services Section */
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -281,6 +290,7 @@
         }
 
         /* About Section */
+
         .about-content {
             text-align: center;
             max-width: 900px;
@@ -350,6 +360,7 @@
         }
 
         /* Experience & Education */
+
         .timeline-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -483,6 +494,7 @@
         }
 
         /* Projects */
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -532,6 +544,7 @@
         }
 
         /* Skills Section */
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -573,6 +586,7 @@
         }
 
         /* Responsive */
+
         @media (max-width: 992px) {
             .hero-container {
                 flex-direction: column;
@@ -617,9 +631,12 @@
 
 <body>
 
+    <!-- Header -->
+
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">at</a>
+
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -629,91 +646,149 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
             <a href="mailto:athulthomas004@gmail.com" class="btn-talk">Let's Talk</a>
         </div>
     </header>
 
+    <!-- Hero Section -->
+
     <section class="hero" id="home">
         <div class="container hero-container">
+
             <div class="hero-content">
                 <div class="hero-greeting">I am Athul Thomas</div>
-                <h1 class="hero-title">WordPress Developer<br>& Front-End Engineer</h1>
-                <p class="hero-desc">I am a passionate and detail-oriented WordPress Developer with experience in
-                    creating responsive and user-friendly websites using Elementor, HTML, CSS, JavaScript, and PHP.</p>
+
+                <h1 class="hero-title">
+                    WordPress Developer<br>& Front-End Engineer
+                </h1>
+
+                <p class="hero-desc">
+                    I am a passionate and detail-oriented WordPress Developer who builds
+                    responsive, user-friendly websites and engaging digital experiences.
+                    I also have basic knowledge of Shopify e-commerce development and
+                    have built my own online store, Alcove Hub.
+                </p>
+
                 <div class="hero-actions">
-                    <a href="assets/Resume/Athul_Thomas_Resume%20Updated.pdf" class="btn-cv" download>Download CV</a>
+                    <a href="assets/Resume/Athul_Thomas_CV.pdf"
+                        class="btn-cv" download>
+                        Download CV
+                    </a>
+
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/" target="_blank"
-                            class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/athult04" target="_blank" class="social-icon"><i
-                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/athul-thomas-a18a50381/"
+                            target="_blank" rel="noopener noreferrer" class="social-icon"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+
+                        <a href="https://github.com/athult04"
+                            target="_blank" rel="noopener noreferrer" class="social-icon"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
             <div class="hero-image">
-                <img src="assets/images/WhatsApp%20Image%202026-06-10%20at%2010.08.30%20PM.jpeg" alt="Athul Thomas"
+                <img src="assets/images/WhatsApp%20Image%202026-06-10%20at%2010.08.30%20PM.jpeg"
+                    alt="Athul Thomas"
                     onerror="this.src='https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=600'">
             </div>
+
         </div>
     </section>
 
+    <!-- Services Section -->
+
     <section id="services">
         <div class="container">
+
             <div class="section-header">
                 <h2 class="section-title">Services</h2>
                 <p class="section-subtitle">Delivering high-quality web solutions</p>
             </div>
 
             <div class="services-grid">
+
                 <div class="service-card">
                     <h3>WordPress<br>Development</h3>
-                    <p>Building clean, modern, and functional web experiences using custom Elementor setups.</p>
+                    <p>
+                        Building clean, modern, and functional web experiences using
+                        custom Elementor setups.
+                    </p>
+
                     <div class="service-pills">
                         <div class="pill">Theme Customization</div>
                         <div class="pill">Elementor Builder</div>
                     </div>
                 </div>
+
                 <div class="service-card">
                     <h3>Frontend<br>Development</h3>
-                    <p>Creating responsive layouts using HTML5, CSS3, JavaScript, and PHP for reliable performance.</p>
+                    <p>
+                        Creating responsive layouts using HTML5, CSS3, JavaScript,
+                        and PHP for reliable performance.
+                    </p>
+
                     <div class="service-pills">
                         <div class="pill">Responsive Design</div>
                         <div class="pill">Clean UI Layouts</div>
                     </div>
                 </div>
+
                 <div class="service-card">
                     <h3>SEO<br>Optimization</h3>
-                    <p>Performing on-page SEO including meta tags, heading structure, and internal linking to rank
-                        higher.</p>
+                    <p>
+                        Performing on-page SEO including meta tags, heading structure,
+                        and internal linking to rank higher.
+                    </p>
+
                     <div class="service-pills">
                         <div class="pill">On-Page SEO</div>
                         <div class="pill">Content Structure</div>
                     </div>
                 </div>
+
                 <div class="service-card">
                     <h3>Performance &<br>Animations</h3>
-                    <p>Website speed optimization, custom CSS, and implementing interactive design elements.</p>
+                    <p>
+                        Website speed optimization, custom CSS, and implementing
+                        interactive design elements.
+                    </p>
+
                     <div class="service-pills">
                         <div class="pill">Speed Optimization</div>
                         <div class="pill">UI Animations</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+
     <section id="about">
         <div class="container">
+
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
             </div>
 
             <div class="about-content">
-                <p class="about-desc">I enjoy building clean, modern, and functional web experiences while continuously
-                    learning new technologies and improving my skills. I am committed to delivering quality work with
-                    creativity, performance, and user experience in mind.</p>
+
+                <p class="about-desc">
+                    I enjoy building clean, modern, and functional web experiences
+                    while continuously learning new technologies and improving my skills.
+                    I am committed to delivering quality work with creativity,
+                    performance, and user experience in mind.
+                </p>
 
                 <h3 class="approach-title">My Approach</h3>
+
                 <div class="approach-pills">
                     <div class="approach-pill"><span>01</span> Quality & Creativity</div>
                     <div class="approach-pill"><span>02</span> Performance Focused</div>
@@ -721,32 +796,48 @@
                 </div>
 
                 <div class="stats-grid">
+
                     <div class="stat-item">
                         <div class="stat-num">01+</div>
                         <div class="stat-label">Years Of Experience</div>
                     </div>
+
                     <div class="stat-item">
                         <div class="stat-num">05+</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
+
                     <div class="stat-item">
                         <div class="stat-num">02+</div>
                         <div class="stat-label">Certifications</div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Experience & Education Section -->
+
     <section id="experience" style="background-color: #111;">
         <div class="container">
+
             <div class="timeline-container">
+
                 <div class="timeline-col">
                     <h3>Work Experience</h3>
+
                     <div class="timeline-item">
                         <div class="timeline-date">Dec 2024 - Aug 2026</div>
-                        <div class="timeline-title">WordPress | Frontend Web Developer</div>
-                        <div class="timeline-org">D Soft Solutions, Ernakulam</div>
+
+                        <div class="timeline-title">
+                            WordPress | Frontend Web Developer
+                        </div>
+
+                        <div class="timeline-org">
+                            D Soft Solutions, Ernakulam
+                        </div>
+
                         <div class="timeline-desc">
                             <ul>
                                 <li>Designed and developed multiple live WordPress websites using Elementor.</li>
@@ -756,10 +847,16 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="timeline-item">
                         <div class="timeline-date">Dec 2024 - Jan 2025</div>
+
                         <div class="timeline-title">WordPress Developer Intern</div>
-                        <div class="timeline-org">D Soft Solutions, Ernakulam</div>
+
+                        <div class="timeline-org">
+                            D Soft Solutions, Ernakulam
+                        </div>
+
                         <div class="timeline-desc">
                             <ul>
                                 <li>Assisted in developing WordPress websites using Elementor.</li>
@@ -769,102 +866,205 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="timeline-col">
                     <h3>Educational History</h3>
+
                     <div class="timeline-item">
                         <div class="timeline-date">2021 - 2024</div>
-                        <div class="timeline-title">BA Mass Communication & Journalism</div>
-                        <div class="timeline-org">University of Calicut</div>
+
+                        <div class="timeline-title">
+                            BA Mass Communication & Journalism
+                        </div>
+
+                        <div class="timeline-org">
+                            University of Calicut
+                        </div>
                     </div>
+
                     <div class="timeline-item">
                         <div class="timeline-date">2024</div>
+
                         <div class="timeline-title">Diploma in Digital Marketing</div>
+
                         <div class="timeline-org">D Soft Technologies</div>
                     </div>
+
                     <div class="timeline-item cert-item">
                         <div class="cert-icon">
                             <i class="fas fa-award"></i>
                         </div>
+
                         <div class="cert-content">
                             <div class="cert-header">
                                 <div class="cert-title">NACCT Certificate</div>
-                                <div class="verified-badge"><i class="fas fa-check-circle"></i> Verified</div>
+
+                                <div class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </div>
                             </div>
-                            <div class="timeline-org" style="margin-bottom: 10px;">National Council for Computer
-                                Training (NACCT)</div>
-                            <div class="timeline-desc">Completion of Diploma in Digital Marketing</div>
+
+                            <div class="timeline-org" style="margin-bottom: 10px;">
+                                National Council for Computer Training (NACCT)
+                            </div>
+
+                            <div class="timeline-desc">
+                                Completion of Diploma in Digital Marketing
+                            </div>
+
                             <div class="cert-issued">Issued: 2026</div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
+
     <section id="projects">
         <div class="container">
+
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>
                 <p class="section-subtitle">My recent work</p>
             </div>
+
             <div class="projects-grid">
+
                 <div class="project-card">
                     <h3 class="project-title">D Soft Institute</h3>
-                    <p class="project-desc">Developed and maintained a responsive WordPress website for an educational
-                        institute.</p>
-                    <a href="https://dsoftinstitute.com/" target="_blank" class="project-link">View Project</a>
+
+                    <p class="project-desc">
+                        Developed and maintained a responsive WordPress website
+                        for an educational institute.
+                    </p>
+
+                    <a href="https://dsoftinstitute.com/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
                 <div class="project-card">
                     <h3 class="project-title">Digital Marketing - D Soft</h3>
-                    <p class="project-desc">Created a modern digital marketing training website with responsive design.
+
+                    <p class="project-desc">
+                        Created a modern digital marketing training website
+                        with responsive design.
                     </p>
-                    <a href="https://digitalmarketing.dsoftinstitute.com/" target="_blank" class="project-link">View
-                        Project</a>
+
+                    <a href="https://digitalmarketing.dsoftinstitute.com/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
                 <div class="project-card">
                     <h3 class="project-title">Travel Hope</h3>
-                    <p class="project-desc">Created a modern and responsive website for travel services.</p>
-                    <a href="https://travelhope.in/" target="_blank" class="project-link">View Project</a>
+
+                    <p class="project-desc">
+                        Created a modern and responsive website for travel services.
+                    </p>
+
+                    <a href="https://travelhope.in/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
                 <div class="project-card">
                     <h3 class="project-title">Hairocraft Global</h3>
-                    <p class="project-desc">Built a responsive website for a global hair product company.</p>
-                    <a href="https://www.hairocraftglobal.com/" target="_blank" class="project-link">View Project</a>
+
+                    <p class="project-desc">
+                        Built a responsive website for a global hair product company.
+                    </p>
+
+                    <a href="https://www.hairocraftglobal.com/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
                 <div class="project-card">
                     <h3 class="project-title">Dream Holidays Kerala</h3>
-                    <p class="project-desc">Developed a travel website for tour packages and trip planning.</p>
-                    <a href="https://dreamholidayskerala.com/" target="_blank" class="project-link">View Project</a>
+
+                    <p class="project-desc">
+                        Developed a travel website for tour packages and trip planning.
+                    </p>
+
+                    <a href="https://dreamholidayskerala.com/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
                 <div class="project-card">
                     <h3 class="project-title">UI/UX Designing</h3>
-                    <p class="project-desc">Designed a modern and responsive website for a UI/UX designing institute.
+
+                    <p class="project-desc">
+                        Designed a modern and responsive website for a UI/UX designing institute.
                     </p>
-                    <a href="https://uiuxdesigning.dsoftinstitute.com/" target="_blank" class="project-link">View
-                        Project</a>
+
+                    <a href="https://uiuxdesigning.dsoftinstitute.com/"
+                        target="_blank" rel="noopener noreferrer" class="project-link">
+                        View Project
+                    </a>
                 </div>
+
+                <!-- NEW SHOPIFY PROJECT: ALCOVE HUB -->
+
+                <div class="project-card">
+                    <h3 class="project-title">Alcove Hub</h3>
+
+                    <p class="project-desc">
+                        Built a Shopify e-commerce store for home decor, kitchen essentials,
+                        desktop accessories, and lifestyle products. Customized the storefront,
+                        organized products and collections, and worked on the online shopping experience.
+                    </p>
+
+                    <a href="https://alcovehub.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link">
+                        Visit Live Store
+                        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
+
     <section id="skills" style="padding-bottom: 100px; background-color: #111;">
         <div class="container">
+
             <div class="section-header">
                 <h2 class="section-title">Skills</h2>
-                <p class="section-subtitle">Building robust digital experiences with modern web technologies</p>
+
+                <p class="section-subtitle">
+                    Building robust digital experiences with modern web technologies
+                </p>
             </div>
 
             <div class="skills-grid">
+
                 <div class="skill-card">
                     <h3>WordPress</h3>
+
                     <div class="skill-tags">
                         <div class="skill-tag">WordPress Development</div>
                         <div class="skill-tag">Elementor Builder</div>
                         <div class="skill-tag">Theme Customization</div>
                     </div>
                 </div>
+
                 <div class="skill-card">
                     <h3>Frontend Tech</h3>
+
                     <div class="skill-tags">
                         <div class="skill-tag">HTML5</div>
                         <div class="skill-tag">CSS3</div>
@@ -872,8 +1072,10 @@
                         <div class="skill-tag">PHP</div>
                     </div>
                 </div>
+
                 <div class="skill-card">
                     <h3>Optimization & Design</h3>
+
                     <div class="skill-tags">
                         <div class="skill-tag">Responsive Web Design</div>
                         <div class="skill-tag">Custom CSS & Animations</div>
@@ -882,40 +1084,86 @@
                         <div class="skill-tag">Vibe Coding</div>
                     </div>
                 </div>
+
+                <!-- NEW SHOPIFY SKILLS -->
+
+                <div class="skill-card">
+                    <h3>Shopify & E-commerce</h3>
+
+                    <div class="skill-tags">
+                        <div class="skill-tag">Basic Shopify Knowledge</div>
+                        <div class="skill-tag">Store Setup & Customization</div>
+                        <div class="skill-tag">Product & Collection Management</div>
+                        <div class="skill-tag">E-commerce Storefront</div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
 
     <section id="contact" style="padding-bottom: 100px;">
         <div class="container">
+
             <div class="section-header">
                 <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly hello</p>
+
+                <p class="section-subtitle">
+                    Feel free to reach out for collaborations or just a friendly hello
+                </p>
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <a href="mailto:athulthomas004@gmail.com" class="skill-card"
+
+                <a href="mailto:athulthomas004@gmail.com"
+                    class="skill-card"
                     style="text-align: center; text-decoration: none; display: block; color: inherit; transition: var(--transition);">
-                    <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
+                    <i class="fas fa-envelope"
+                        style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
                     <h3 style="margin-bottom: 10px;">Email</h3>
-                    <p style="color: var(--text-muted);">athulthomas004@gmail.com</p>
+
+                    <p style="color: var(--text-muted);">
+                        athulthomas004@gmail.com
+                    </p>
                 </a>
-                <a href="tel:+918943185957" class="skill-card"
+
+                <a href="tel:+918943185957"
+                    class="skill-card"
                     style="text-align: center; text-decoration: none; display: block; color: inherit; transition: var(--transition);">
-                    <i class="fas fa-phone-alt" style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
+                    <i class="fas fa-phone-alt"
+                        style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
                     <h3 style="margin-bottom: 10px;">Phone</h3>
-                    <p style="color: var(--text-muted);">+91 8943185957</p>
+
+                    <p style="color: var(--text-muted);">
+                        +91 8943185957
+                    </p>
                 </a>
-                <a href="https://maps.google.com/?q=Ernakulam,Kerala" target="_blank" class="skill-card"
+
+                <a href="https://maps.google.com/?q=Malappuram,Kerala"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="skill-card"
                     style="text-align: center; text-decoration: none; display: block; color: inherit; transition: var(--transition);">
-                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
+                    <i class="fas fa-map-marker-alt"
+                        style="font-size: 2rem; margin-bottom: 15px; color: #fff;"></i>
+
                     <h3 style="margin-bottom: 10px;">Location</h3>
-                    <p style="color: var(--text-muted);">Ernakulam, Kerala</p> 
+
+                    <p style="color: var(--text-muted);">
+                        Malappuram, Kerala
+                    </p>
                 </a>
+
             </div>
         </div>
     </section>
-
 
 </body>
 
